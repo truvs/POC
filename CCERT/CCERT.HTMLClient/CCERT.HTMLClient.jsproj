@@ -62,6 +62,7 @@
     <Content Include="Content\Images\user-logo.png" />
     <Content Include="Content\Images\user-splash-screen.png" />
     <Content Include="Content\Web.config" />
+    <Content Include="DummyLoginPage.html" />
     <Content Include="packages.config" />
     <Content Include="Scripts\datajs-1.1.0.js" />
     <Content Include="Scripts\datajs-1.1.0.min.js" />

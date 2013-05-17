@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ApplicationDataStore" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ApplicationDataStore">
+    <EntitySet Name="ExpenseItems" EntityType="ApplicationDataStore.ExpenseItem" store:Type="Tables" Schema="dbo" Table="ExpenseItems" />
+    <EntitySet Name="ExpenseReports" EntityType="ApplicationDataStore.ExpenseReport" store:Type="Tables" Schema="dbo" Table="ExpenseReports" />
+    <AssociationSet Name="ExpenseItem_ExpenseReport" Association="ApplicationDataStore.ExpenseItem_ExpenseReport">
+      <End Role="ExpenseReport" EntitySet="ExpenseReports" />
+      <End Role="ExpenseItem" EntitySet="ExpenseItems" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ExpenseItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Amount" Type="decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="DateIncurred" Type="datetime" Nullable="false" />
+    <Property Name="ExpenseItem_ExpenseReport" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ExpenseReport">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="255" />
+  </EntityType>
+  <Association Name="ExpenseItem_ExpenseReport">
+    <End Role="ExpenseReport" Type="ApplicationDataStore.ExpenseReport" Multiplicity="1" />
+    <End Role="ExpenseItem" Type="ApplicationDataStore.ExpenseItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExpenseReport">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ExpenseItem">
+        <PropertyRef Name="ExpenseItem_ExpenseReport" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

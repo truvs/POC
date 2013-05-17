@@ -1,0 +1,3747 @@
+﻿
+{
+  "modules":
+  [
+    {
+      "homeScreen": { "__id": "BrowseExpenseReports" },
+      "id": "!module",
+      "name": "LightSwitchApplication.CCERT",
+      "logo": "/Content/Images/logo.png",
+      "targetPlatform": "MobileWeb",
+      "version": "1.0.0.0",
+      "shell": { "__id": ":HTMLShell" },
+      "theme": { "__id": ":HTMLTheme" },
+      ":@ModuleNamespace": { "namespace": "LightSwitchApplication" },
+      ":@HomeScreen": { "value": { "__id": "BrowseExpenseReports" } },
+      "globalItems":
+      [
+        {
+          "id": "DataWorkspace",
+          "name": "DataWorkspace",
+          "members":
+          [
+            {
+              "id": "DataWorkspace/Members[ApplicationData]",
+              "name": "ApplicationData",
+              "entityContainer": { "__id": "ApplicationData" }
+            }
+          ]
+        },
+        {
+          "id": "ApplicationData",
+          "name": "ApplicationData",
+          "isIntrinsic": true,
+          "associationSets":
+          [
+            {
+              "id": "ApplicationData/Members[ExpenseItem_ExpenseReports]",
+              "name": "ExpenseItem_ExpenseReports",
+              "association": { "__id": "ExpenseItem_ExpenseReport" },
+              "ends":
+              [
+                {
+                  "properties": [ "ExpenseItem_ExpenseReport" ],
+                  "id": "ApplicationData/Members[ExpenseItem_ExpenseReports]/Members[ExpenseItem]",
+                  "name": "ExpenseItem",
+                  "entitySet": { "__id": "ApplicationData/Members[ExpenseItems]" }
+                },
+                {
+                  "properties": [ "Id" ],
+                  "id": "ApplicationData/Members[ExpenseItem_ExpenseReports]/Members[ExpenseReport]",
+                  "name": "ExpenseReport",
+                  "entitySet": { "__id": "ApplicationData/Members[ExpenseReports]" }
+                }
+              ]
+            }
+          ],
+          "entitySets":
+          [
+            {
+              "id": "ApplicationData/Members[ExpenseItems]",
+              "name": "ExpenseItems",
+              "canDelete": true,
+              "canInsert": true,
+              "canUpdate": true,
+              "elementType": { "__id": "ExpenseItem" },
+              "entityType": { "__id": "ExpenseItem" }
+            },
+            {
+              "id": "ApplicationData/Members[ExpenseReports]",
+              "name": "ExpenseReports",
+              "canDelete": true,
+              "canInsert": true,
+              "canUpdate": true,
+              "elementType": { "__id": "ExpenseReport" },
+              "entityType": { "__id": "ExpenseReport" }
+            }
+          ],
+          "queryOperations":
+          [
+            {
+              "id": "ApplicationData/Members[ExpenseItems_Single]",
+              "name": "ExpenseItems_Single",
+              "elementType": { "__id": "ExpenseItem" },
+              "query": { "__id": "ApplicationData/Members[ExpenseItems_Single]" },
+              "returnType": { "__id": "ExpenseItem" },
+              "source":
+              {
+                "member": { "__id": "ApplicationData/Members[ExpenseItems]" }
+              },
+              "parameters":
+              [
+                {
+                  "id": "ApplicationData/Members[ExpenseItems_Single]/Parameters[Id]",
+                  "name": "Id",
+                  "parameterType": { "__id": ":Int32?" }
+                }
+              ]
+            },
+            {
+              "id": "ApplicationData/Members[ExpenseItems_SingleOrDefault]",
+              "name": "ExpenseItems_SingleOrDefault",
+              "elementType": { "__id": "ExpenseItem" },
+              "query": { "__id": "ApplicationData/Members[ExpenseItems_SingleOrDefault]" },
+              "returnType": { "__id": "ExpenseItem" },
+              "source":
+              {
+                "member": { "__id": "ApplicationData/Members[ExpenseItems]" }
+              },
+              "parameters":
+              [
+                {
+                  "id": "ApplicationData/Members[ExpenseItems_SingleOrDefault]/Parameters[Id]",
+                  "name": "Id",
+                  "parameterType": { "__id": ":Int32?" }
+                }
+              ]
+            },
+            {
+              "id": "ApplicationData/Members[ExpenseReports_Single]",
+              "name": "ExpenseReports_Single",
+              "elementType": { "__id": "ExpenseReport" },
+              "query": { "__id": "ApplicationData/Members[ExpenseReports_Single]" },
+              "returnType": { "__id": "ExpenseReport" },
+              "source":
+              {
+                "member": { "__id": "ApplicationData/Members[ExpenseReports]" }
+              },
+              "parameters":
+              [
+                {
+                  "id": "ApplicationData/Members[ExpenseReports_Single]/Parameters[Id]",
+                  "name": "Id",
+                  "parameterType": { "__id": ":Int32?" }
+                }
+              ]
+            },
+            {
+              "id": "ApplicationData/Members[ExpenseReports_SingleOrDefault]",
+              "name": "ExpenseReports_SingleOrDefault",
+              "elementType": { "__id": "ExpenseReport" },
+              "query": { "__id": "ApplicationData/Members[ExpenseReports_SingleOrDefault]" },
+              "returnType": { "__id": "ExpenseReport" },
+              "source":
+              {
+                "member": { "__id": "ApplicationData/Members[ExpenseReports]" }
+              },
+              "parameters":
+              [
+                {
+                  "id": "ApplicationData/Members[ExpenseReports_SingleOrDefault]/Parameters[Id]",
+                  "name": "Id",
+                  "parameterType": { "__id": ":Int32?" }
+                }
+              ]
+            },
+            {
+              "id": "ApplicationData/Members[ExpenseReportsForUser]",
+              "name": "ExpenseReportsForUser",
+              "elementType": { "__id": "ExpenseReport" },
+              "query": { "__id": "ApplicationData/Members[ExpenseReportsForUser]" },
+              "returnType": { "__id": "ExpenseReport*" },
+              "source":
+              {
+                "member": { "__id": "ApplicationData/Members[ExpenseReports]" }
+              }
+            }
+          ]
+        },
+        {
+          "__isEntityType": 1,
+          ":@SummaryProperty": { "property": { "__id": "ExpenseItem/Properties[Description]" } },
+          "id": "ExpenseItem",
+          "name": "ExpenseItem",
+          "methods":
+          [
+            {
+              "id": "ExpenseItem/Methods[deleteEntity]",
+              "name": "deleteEntity"
+            },
+            {
+              "id": "ExpenseItem/Methods[edit]",
+              "name": "edit"
+            },
+            {
+              "id": "ExpenseItem/Methods[view]",
+              "name": "view"
+            }
+          ],
+          "properties":
+          [
+            {
+              "__isKeyProperty": 1,
+              "id": "ExpenseItem/Properties[Id]",
+              "name": "Id",
+              "isReadOnly": true,
+              "propertyType": { "__id": ":Int32" },
+              ":@Required": { },
+              ":@NotSearchable": { }
+            },
+            {
+              "id": "ExpenseItem/Properties[RowVersion]",
+              "name": "RowVersion",
+              "isReadOnly": true,
+              "propertyType": { "__id": ":RowVersion" },
+              ":@UseForConcurrency": { },
+              ":@Hidden": { },
+              ":@NotSearchable": { }
+            },
+            {
+              "id": "ExpenseItem/Properties[Description]",
+              "name": "Description",
+              "propertyType": { "__id": ":String" },
+              ":@Required": { },
+              ":@MaxLength":
+              {
+                "value": 255
+              }
+            },
+            {
+              "id": "ExpenseItem/Properties[Amount]",
+              "name": "Amount",
+              "propertyType": { "__id": "Microsoft.LightSwitch.Extensions:Money" },
+              ":@Required": { },
+              ":@NotSearchable": { },
+              ":@DecimalConstraint":
+              {
+                "precision": 18,
+                "scale": 2
+              }
+            },
+            {
+              "id": "ExpenseItem/Properties[DateIncurred]",
+              "name": "DateIncurred",
+              "propertyType": { "__id": ":Date" },
+              ":@Required": { },
+              ":@NotSearchable": { }
+            },
+            {
+              "id": "ExpenseItem/Properties[ExpenseReport]",
+              "name": "ExpenseReport",
+              "association": { "__id": "ExpenseItem_ExpenseReport" },
+              "elementType": { "__id": "ExpenseReport" },
+              "fromEnd": { "__id": "ExpenseItem_ExpenseReport/Ends[ExpenseItem]" },
+              "propertyType": { "__id": "ExpenseReport" },
+              "toEnd": { "__id": "ExpenseItem_ExpenseReport/Ends[ExpenseReport]" }
+            }
+          ]
+        },
+        {
+          "id": "LightSwitchServiceApplicationGroup",
+          "name": "LightSwitchServiceApplicationGroup"
+        },
+        {
+          "__isEntityType": 1,
+          ":@SummaryProperty": { "property": { "__id": "ExpenseReport/Properties[Description]" } },
+          "id": "ExpenseReport",
+          "name": "ExpenseReport",
+          "methods":
+          [
+            {
+              "id": "ExpenseReport/Methods[deleteEntity]",
+              "name": "deleteEntity"
+            },
+            {
+              "id": "ExpenseReport/Methods[edit]",
+              "name": "edit"
+            },
+            {
+              "id": "ExpenseReport/Methods[view]",
+              "name": "view"
+            }
+          ],
+          "properties":
+          [
+            {
+              "__isKeyProperty": 1,
+              "id": "ExpenseReport/Properties[Id]",
+              "name": "Id",
+              "isReadOnly": true,
+              "propertyType": { "__id": ":Int32" },
+              ":@Required": { },
+              ":@NotSearchable": { }
+            },
+            {
+              "id": "ExpenseReport/Properties[RowVersion]",
+              "name": "RowVersion",
+              "isReadOnly": true,
+              "propertyType": { "__id": ":RowVersion" },
+              ":@UseForConcurrency": { },
+              ":@Hidden": { },
+              ":@NotSearchable": { }
+            },
+            {
+              "id": "ExpenseReport/Properties[Description]",
+              "name": "Description",
+              "propertyType": { "__id": ":String" },
+              ":@Required": { },
+              ":@MaxLength":
+              {
+                "value": 255
+              }
+            },
+            {
+              "id": "ExpenseReport/Properties[CreationDate]",
+              "name": "CreationDate",
+              "propertyType": { "__id": ":Date" },
+              ":@Required": { },
+              ":@NotSearchable": { }
+            },
+            {
+              "id": "ExpenseReport/Properties[Status]",
+              "name": "Status",
+              "propertyType": { "__id": ":String" },
+              ":@Required": { },
+              ":@MaxLength":
+              {
+                "value": 255
+              }
+            },
+            {
+              "id": "ExpenseReport/Properties[ExpenseItems]",
+              "name": "ExpenseItems",
+              "association": { "__id": "ExpenseItem_ExpenseReport" },
+              "elementType": { "__id": "ExpenseItem" },
+              "fromEnd": { "__id": "ExpenseItem_ExpenseReport/Ends[ExpenseReport]" },
+              "propertyType": { "__id": "ExpenseItem*" },
+              "toEnd": { "__id": "ExpenseItem_ExpenseReport/Ends[ExpenseItem]" }
+            },
+            {
+              "id": "ExpenseReport/Properties[UserName]",
+              "name": "UserName",
+              "propertyType": { "__id": ":String" },
+              ":@Required": { },
+              ":@MaxLength":
+              {
+                "value": 255
+              },
+              ":@Hidden": { }
+            }
+          ]
+        },
+        {
+          "id": "ExpenseItem_ExpenseReport",
+          "name": "ExpenseItem_ExpenseReport",
+          "ends":
+          [
+            {
+              "id": "ExpenseItem_ExpenseReport/Ends[ExpenseItem]",
+              "name": "ExpenseItem",
+              "multiplicity": "Many",
+              "entityType": { "__id": "ExpenseItem" }
+            },
+            {
+              "id": "ExpenseItem_ExpenseReport/Ends[ExpenseReport]",
+              "name": "ExpenseReport",
+              "multiplicity": "One",
+              "entityType": { "__id": "ExpenseReport" },
+              ":@DeleteRule": { "action": "Restrict" }
+            }
+          ]
+        },
+        {
+          "displayName": "Expense Items",
+          "id": "BrowseExpenseItems",
+          "name": "BrowseExpenseItems",
+          "launchMode": "Single",
+          ":@SaveChangesTo":
+          {
+            "property": { "__id": "DataWorkspace/Members[ApplicationData]" }
+          },
+          "rootContentItem":
+          {
+            "displayName": "Expense Items",
+            "name": "RootContentItem",
+            "kind": "Screen",
+            "view": { "__id": ":Screen" },
+            "childContentItems":
+            [
+              {
+                "displayName": "Tabs",
+                "name": "Tabs",
+                "kind": "Group",
+                "view": { "__id": ":TabPages" },
+                "childContentItems":
+                [
+                  {
+                    "displayName": "Expense Item List",
+                    "name": "ExpenseItemList",
+                    "kind": "Tab",
+                    "view": { "__id": ":RowsLayout" },
+                    "childContentItems":
+                    [
+                      {
+                        "displayName": "Expense Items",
+                        "name": "ExpenseItem",
+                        "kind": "Collection",
+                        "view": { "__id": ":List" },
+                        "dataSource":
+                        {
+                          "member": { "__id": "BrowseExpenseItems/Properties[ExpenseItems]" }
+                        },
+                        "childContentItems":
+                        [
+                          {
+                            "displayName": "Expense Item",
+                            "name": "RowTemplate",
+                            "kind": "Details",
+                            "view": { "__id": ":ColumnsLayout" },
+                            "dataSource":
+                            {
+                              "links":
+                              [
+                              ]
+                            },
+                            "childContentItems":
+                            [
+                              {
+                                "displayName": "Description",
+                                "name": "Description",
+                                "kind": "Value",
+                                "view": { "__id": ":Text" },
+                                "dataSource":
+                                {
+                                  "member": { "__id": "ExpenseItem/Properties[Description]" }
+                                }
+                              },
+                              {
+                                "displayName": "Amount",
+                                "name": "Amount",
+                                "kind": "Value",
+                                "view": { "__id": ":MoneyViewer" },
+                                "dataSource":
+                                {
+                                  "member": { "__id": "ExpenseItem/Properties[Amount]" }
+                                }
+                              },
+                              {
+                                "displayName": "Date Incurred",
+                                "name": "DateIncurred",
+                                "kind": "Value",
+                                "view": { "__id": ":Text" },
+                                "dataSource":
+                                {
+                                  "member": { "__id": "ExpenseItem/Properties[DateIncurred]" }
+                                }
+                              },
+                              {
+                                "displayName": "Expense Report",
+                                "name": "ExpenseReport",
+                                "kind": "Details",
+                                "view": { "__id": ":Summary" },
+                                "dataSource":
+                                {
+                                  "member": { "__id": "ExpenseItem/Properties[ExpenseReport]" }
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "propertySources":
+                        [
+                          {
+                            "property": { "__id": ":RootCollectionControl/Properties[ItemTap]" },
+                            "source":
+                            {
+                              "target": { "__id": "!module/Methods[showAddEditExpenseItem]" },
+                              ":@AssociatedCollection": { "collection": { "__id": "BrowseExpenseItems/Properties[ExpenseItems]" } },
+                              "arguments":
+                              [
+                                {
+                                  "parameter": { "__id": "!module/Methods[showAddEditExpenseItem]/Parameters[ExpenseItem]" },
+                                  "value":
+                                  {
+                                    "links":
+                                    [
+                                      {
+                                        "member": { "__id": "BrowseExpenseItems/Properties[ExpenseItems]" }
+                                      },
+                                      {
+                                        "member": { "__id": "CollectionView$ExpenseItem/Properties[selectedItem]" }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    ],
+                    "commandItems":
+                    [
+                      {
+                        "displayName": "Add Expense Item",
+                        "name": "AddExpenseItem",
+                        "kind": "Command",
+                        "view": { "__id": ":CommandBarButton" },
+                        "propertySources":
+                        [
+                          {
+                            "property": { "__id": ":RootControl/Properties[Tap]" },
+                            "source":
+                            {
+                              "target": { "__id": "!module/Methods[showAddEditExpenseItem]" },
+                              ":@AssociatedCollection": { "collection": { "__id": "BrowseExpenseItems/Properties[ExpenseItems]" } },
+                              ":@CreateNewEntity":
+                              {
+                                "targetParameter": { "__id": "!module/Methods[showAddEditExpenseItem]/Parameters[ExpenseItem]" }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "propertySources":
+                [
+                  {
+                    "property": { "__id": ":RootControl/Properties[BrowseOnly]" },
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "displayName": "Popups",
+                "name": "Popups",
+                "kind": "Group",
+                "view": { "__id": ":DialogPages" }
+              }
+            ],
+            "propertySources":
+            [
+              {
+                "property": { "__id": ":Screen/Properties[ScreenType]" },
+                "value": "Browse"
+              }
+            ]
+          },
+          "methods":
+          [
+            {
+              "id": "BrowseExpenseItems/Methods[showTab]",
+              "name": "showTab",
+              "parameters":
+              [
+                {
+                  "id": "BrowseExpenseItems/Methods[showTab]/Parameters[tabName]",
+                  "name": "tabName",
+                  "parameterType": { "__id": ":String" }
+                }
+              ]
+            },
+            {
+              "id": "BrowseExpenseItems/Methods[showDialog]",
+              "name": "showDialog",
+              "parameters":
+              [
+                {
+                  "id": "BrowseExpenseItems/Methods[showDialog]/Parameters[dialogName]",
+                  "name": "dialogName",
+                  "parameterType": { "__id": ":String" }
+                }
+              ]
+            }
+          ],
+          "properties":
+          [
+            {
+              "id": "BrowseExpenseItems/Properties[ExpenseItems]",
+              "name": "ExpenseItems",
+              "pageSize": 45,
+              "elementType": { "__id": "ExpenseItem" },
+              "propertyType": { "__id": "CollectionView$ExpenseItem" },
+              "query":
+              {
+                "id": "BrowseExpenseItems/Properties[ExpenseItems]/Query",
+                "name": "ExpenseItemsQuery",
+                "elementType": { "__id": "ExpenseItem" },
+                "returnType": { "__id": "ExpenseItem*" },
+                "source":
+                {
+                  "member": { "__id": "ApplicationData/Members[ExpenseItems]" }
+                }
+              },
+              "source":
+              {
+                "target": { "__id": "BrowseExpenseItems/Properties[ExpenseItems]/Query" }
+              }
+            }
+          ]
+        },
+        {
+          "displayName": "Edit Expense",
+          "id": "AddEditExpenseItem",
+          "name": "AddEditExpenseItem",
+          "launchMode": "Single",
+          ":@SaveChangesTo":
+          {
+            "property": { "__id": "DataWorkspace/Members[ApplicationData]" }
+          },
+          "rootContentItem":
+          {
+            "displayName": "Edit Expense",
+            "name": "RootContentItem",
+            "kind": "Screen",
+            "view": { "__id": ":Screen" },
+            "childContentItems":
+            [
+              {
+                "displayName": "Tabs",
+                "name": "Tabs",
+                "kind": "Group",
+                "view": { "__id": ":TabPages" },
+                "childContentItems":
+                [
+                  {
+                    "displayName": "Details",
+                    "name": "Details",
+                    "kind": "Tab",
+                    "view": { "__id": ":RowsLayout" },
+                    "childContentItems":
+                    [
+                      {
+                        "displayName": "columns",
+                        "name": "columns",
+                        "kind": "Details",
+                        "view": { "__id": ":ColumnsLayout" },
+                        "dataSource":
+                        {
+                          "member": { "__id": "AddEditExpenseItem/Properties[ExpenseItem]" }
+                        },
+                        "childContentItems":
+                        [
+                          {
+                            "displayName": "left",
+                            "name": "left",
+                            "kind": "Group",
+                            "view": { "__id": ":RowsLayout" },
+                            "childContentItems":
+                            [
+                              {
+                                "displayName": "Description",
+                                "name": "Description",
+                                "kind": "Value",
+                                "view": { "__id": ":TextBox" },
+                                "dataSource":
+                                {
+                                  "member": { "__id": "ExpenseItem/Properties[Description]" }
+                                }
+                              },
+                              {
+                                "displayName": "Amount",
+                                "name": "Amount",
+                                "kind": "Value",
+                                "view": { "__id": ":MoneyEditor" },
+                                "dataSource":
+                                {
+                                  "member": { "__id": "ExpenseItem/Properties[Amount]" }
+                                }
+                              }
+                            ],
+                            "propertySources":
+                            [
+                              {
+                                "property": { "__id": ":RootControl/Properties[MinWidth]" },
+                                "value": 200
+                              },
+                              {
+                                "property": { "__id": ":RootControl/Properties[MaxWidth]" },
+                                "value": 400
+                              }
+                            ]
+                          },
+                          {
+                            "displayName": "right",
+                            "name": "right",
+                            "kind": "Group",
+                            "view": { "__id": ":RowsLayout" },
+                            "childContentItems":
+                            [
+                              {
+                                "displayName": "Date Incurred",
+                                "name": "DateIncurred",
+                                "kind": "Value",
+                                "view": { "__id": ":DatePicker" },
+                                "dataSource":
+                                {
+                                  "member": { "__id": "ExpenseItem/Properties[DateIncurred]" }
+                                }
+                              }
+                            ],
+                            "propertySources":
+                            [
+                              {
+                                "property": { "__id": ":RootControl/Properties[MinWidth]" },
+                                "value": 200
+                              },
+                              {
+                                "property": { "__id": ":RootControl/Properties[MaxWidth]" },
+                                "value": 400
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "commandItems":
+                    [
+                      {
+                        "displayName": "Delete Expense",
+                        "name": "Delete",
+                        "kind": "Command",
+                        "view": { "__id": ":CommandBarButton" },
+                        "propertySources":
+                        [
+                          {
+                            "property": { "__id": ":RootControl/Properties[Tap]" },
+                            "source":
+                            {
+                              "target": { "__id": "AddEditExpenseItem/Methods[Delete]" }
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "displayName": "Popups",
+                "name": "Popups",
+                "kind": "Group",
+                "view": { "__id": ":DialogPages" }
+              }
+            ],
+            "propertySources":
+            [
+              {
+                "property": { "__id": ":Screen/Properties[ScreenType]" },
+                "value": "Edit"
+              },
+              {
+                "property": { "__id": ":Screen/Properties[ShowAsDialog]" },
+                "value": true
+              }
+            ]
+          },
+          "methods":
+          [
+            {
+              "id": "AddEditExpenseItem/Methods[showTab]",
+              "name": "showTab",
+              "parameters":
+              [
+                {
+                  "id": "AddEditExpenseItem/Methods[showTab]/Parameters[tabName]",
+                  "name": "tabName",
+                  "parameterType": { "__id": ":String" }
+                }
+              ]
+            },
+            {
+              "id": "AddEditExpenseItem/Methods[showDialog]",
+              "name": "showDialog",
+              "parameters":
+              [
+                {
+                  "id": "AddEditExpenseItem/Methods[showDialog]/Parameters[dialogName]",
+                  "name": "dialogName",
+                  "parameterType": { "__id": ":String" }
+                }
+              ]
+            },
+            {
+              "id": "AddEditExpenseItem/Methods[Delete]",
+              "name": "Delete"
+            }
+          ],
+          "properties":
+          [
+            {
+              "id": "AddEditExpenseItem/Properties[ExpenseItem]",
+              "name": "ExpenseItem",
+              "elementType": { "__id": "ExpenseItem" },
+              "propertyType": { "__id": "ExpenseItem" },
+              ":@IsParameter": { }
+            }
+          ]
+        },
+        {
+          "displayName": "Expense Reports",
+          "id": "BrowseExpenseReports",
+          "name": "BrowseExpenseReports",
+          "launchMode": "Single",
+          ":@SaveChangesTo":
+          {
+            "property": { "__id": "DataWorkspace/Members[ApplicationData]" }
+          },
+          "rootContentItem":
+          {
+            "displayName": "Expense Reports",
+            "name": "RootContentItem",
+            "kind": "Screen",
+            "view": { "__id": ":Screen" },
+            "childContentItems":
+            [
+              {
+                "displayName": "Tabs",
+                "name": "Tabs",
+                "kind": "Group",
+                "view": { "__id": ":TabPages" },
+                "childContentItems":
+                [
+                  {
+                    "displayName": "Expense Report List",
+                    "name": "ExpenseReportList",
+                    "kind": "Tab",
+                    "view": { "__id": ":RowsLayout" },
+                    "childContentItems":
+                    [
+                      {
+                        "displayName": "Expense Reports",
+                        "name": "ExpenseReport",
+                        "kind": "Collection",
+                        "view": { "__id": ":List" },
+                        "dataSource":
+                        {
+                          "member": { "__id": "BrowseExpenseReports/Properties[ExpenseReports]" }
+                        },
+                        "childContentItems":
+                        [
+                          {
+                            "displayName": "Expense Report",
+                            "name": "RowTemplate",
+                            "kind": "Details",
+                            "view": { "__id": ":ColumnsLayout" },
+                            "dataSource":
+                            {
+                              "links":
+                              [
+                              ]
+                            },
+                            "childContentItems":
+                            [
+                              {
+                                "displayName": "Creation Date",
+                                "name": "CreationDate",
+                                "kind": "Value",
+                                "view": { "__id": ":Text" },
+                                "dataSource":
+                                {
+                                  "member": { "__id": "ExpenseReport/Properties[CreationDate]" }
+                                },
+                                "propertySources":
+                                [
+                                  {
+                                    "property": { "__id": ":RootControl/Properties[WidthSizingMode]" },
+                                    "value": "FixedSize"
+                                  },
+                                  {
+                                    "property": { "__id": ":RootControl/Properties[Width]" },
+                                    "value": 100
+                                  }
+                                ]
+                              },
+                              {
+                                "displayName": "Status",
+                                "name": "Status",
+                                "kind": "Value",
+                                "view": { "__id": ":Text" },
+                                "dataSource":
+                                {
+                                  "member": { "__id": "ExpenseReport/Properties[Status]" }
+                                },
+                                "propertySources":
+                                [
+                                  {
+                                    "property": { "__id": ":RootControl/Properties[WidthSizingMode]" },
+                                    "value": "FixedSize"
+                                  },
+                                  {
+                                    "property": { "__id": ":RootControl/Properties[Width]" },
+                                    "value": 100
+                                  }
+                                ]
+                              },
+                              {
+                                "displayName": "Description",
+                                "name": "Description",
+                                "kind": "Value",
+                                "view": { "__id": ":Text" },
+                                "dataSource":
+                                {
+                                  "member": { "__id": "ExpenseReport/Properties[Description]" }
+                                },
+                                "propertySources":
+                                [
+                                  {
+                                    "property": { "__id": ":RootControl/Properties[WidthSizingMode]" },
+                                    "value": "StretchToContainer"
+                                  },
+                                  {
+                                    "property": { "__id": ":RootControl/Properties[Width]" },
+                                    "value": 400
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        "propertySources":
+                        [
+                          {
+                            "property": { "__id": ":RootCollectionControl/Properties[ItemTap]" },
+                            "source":
+                            {
+                              "target": { "__id": "!module/Methods[showViewExpenseReport]" },
+                              ":@AssociatedCollection": { "collection": { "__id": "BrowseExpenseReports/Properties[ExpenseReports]" } },
+                              "arguments":
+                              [
+                                {
+                                  "parameter": { "__id": "!module/Methods[showViewExpenseReport]/Parameters[ExpenseReport]" },
+                                  "value":
+                                  {
+                                    "links":
+                                    [
+                                      {
+                                        "member": { "__id": "BrowseExpenseReports/Properties[ExpenseReports]" }
+                                      },
+                                      {
+                                        "member": { "__id": "CollectionView$ExpenseReport/Properties[selectedItem]" }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    ],
+                    "commandItems":
+                    [
+                      {
+                        "displayName": "Add Expense Report",
+                        "name": "AddExpenseReport",
+                        "kind": "Command",
+                        "view": { "__id": ":CommandBarButton" },
+                        "propertySources":
+                        [
+                          {
+                            "property": { "__id": ":RootControl/Properties[Tap]" },
+                            "source":
+                            {
+                              "target": { "__id": "!module/Methods[showAddEditExpenseReport]" },
+                              ":@AssociatedCollection": { "collection": { "__id": "BrowseExpenseReports/Properties[ExpenseReports]" } },
+                              ":@CreateNewEntity":
+                              {
+                                "targetParameter": { "__id": "!module/Methods[showAddEditExpenseReport]/Parameters[ExpenseReport]" }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "propertySources":
+                [
+                  {
+                    "property": { "__id": ":RootControl/Properties[BrowseOnly]" },
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "displayName": "Popups",
+                "name": "Popups",
+                "kind": "Group",
+                "view": { "__id": ":DialogPages" }
+              }
+            ],
+            "propertySources":
+            [
+              {
+                "property": { "__id": ":Screen/Properties[ScreenType]" },
+                "value": "Browse"
+              }
+            ]
+          },
+          "methods":
+          [
+            {
+              "id": "BrowseExpenseReports/Methods[showTab]",
+              "name": "showTab",
+              "parameters":
+              [
+                {
+                  "id": "BrowseExpenseReports/Methods[showTab]/Parameters[tabName]",
+                  "name": "tabName",
+                  "parameterType": { "__id": ":String" }
+                }
+              ]
+            },
+            {
+              "id": "BrowseExpenseReports/Methods[showDialog]",
+              "name": "showDialog",
+              "parameters":
+              [
+                {
+                  "id": "BrowseExpenseReports/Methods[showDialog]/Parameters[dialogName]",
+                  "name": "dialogName",
+                  "parameterType": { "__id": ":String" }
+                }
+              ]
+            }
+          ],
+          "properties":
+          [
+            {
+              "id": "BrowseExpenseReports/Properties[ExpenseReports]",
+              "name": "ExpenseReports",
+              "pageSize": 45,
+              "elementType": { "__id": "ExpenseReport" },
+              "propertyType": { "__id": "CollectionView$ExpenseReport" },
+              "query":
+              {
+                "id": "BrowseExpenseReports/Properties[ExpenseReports]/Query",
+                "name": "ExpenseReportsQuery",
+                "elementType": { "__id": "ExpenseReport" },
+                "returnType": { "__id": "ExpenseReport*" },
+                "source":
+                {
+                  "member": { "__id": "ApplicationData/Members[ExpenseReports]" }
+                }
+              },
+              "source":
+              {
+                "target": { "__id": "BrowseExpenseReports/Properties[ExpenseReports]/Query" }
+              }
+            }
+          ]
+        },
+        {
+          "displayName": "Add Edit Expense Report",
+          "id": "AddEditExpenseReport",
+          "name": "AddEditExpenseReport",
+          "launchMode": "Single",
+          ":@SaveChangesTo":
+          {
+            "property": { "__id": "DataWorkspace/Members[ApplicationData]" }
+          },
+          "rootContentItem":
+          {
+            "displayName": "Root Content Item",
+            "name": "RootContentItem",
+            "kind": "Screen",
+            "view": { "__id": ":Screen" },
+            "childContentItems":
+            [
+              {
+                "displayName": "Tabs",
+                "name": "Tabs",
+                "kind": "Group",
+                "view": { "__id": ":TabPages" },
+                "childContentItems":
+                [
+                  {
+                    "displayName": "Details",
+                    "name": "Details",
+                    "kind": "Tab",
+                    "view": { "__id": ":RowsLayout" },
+                    "childContentItems":
+                    [
+                      {
+                        "displayName": "columns",
+                        "name": "columns",
+                        "kind": "Details",
+                        "view": { "__id": ":ColumnsLayout" },
+                        "dataSource":
+                        {
+                          "member": { "__id": "AddEditExpenseReport/Properties[ExpenseReport]" }
+                        },
+                        "childContentItems":
+                        [
+                          {
+                            "displayName": "right",
+                            "name": "right",
+                            "kind": "Group",
+                            "view": { "__id": ":RowsLayout" },
+                            "childContentItems":
+                            [
+                              {
+                                "displayName": "Description",
+                                "name": "Description",
+                                "kind": "Value",
+                                "view": { "__id": ":TextBox" },
+                                "dataSource":
+                                {
+                                  "member": { "__id": "ExpenseReport/Properties[Description]" }
+                                }
+                              }
+                            ],
+                            "propertySources":
+                            [
+                              {
+                                "property": { "__id": ":RootControl/Properties[MinWidth]" },
+                                "value": 200
+                              },
+                              {
+                                "property": { "__id": ":RootControl/Properties[MaxWidth]" },
+                                "value": 400
+                              }
+                            ]
+                          },
+                          {
+                            "displayName": "left",
+                            "name": "left",
+                            "kind": "Group",
+                            "view": { "__id": ":ColumnsLayout" },
+                            "childContentItems":
+                            [
+                              {
+                                "displayName": "Creation Date",
+                                "name": "CreationDate",
+                                "kind": "Value",
+                                "view": { "__id": ":DatePicker" },
+                                "dataSource":
+                                {
+                                  "member": { "__id": "ExpenseReport/Properties[CreationDate]" }
+                                }
+                              },
+                              {
+                                "displayName": "Status",
+                                "name": "Status",
+                                "kind": "Value",
+                                "view": { "__id": ":TextBox" },
+                                "dataSource":
+                                {
+                                  "member": { "__id": "ExpenseReport/Properties[Status]" }
+                                }
+                              }
+                            ],
+                            "propertySources":
+                            [
+                              {
+                                "property": { "__id": ":RootControl/Properties[MinWidth]" },
+                                "value": 200
+                              },
+                              {
+                                "property": { "__id": ":RootControl/Properties[MaxWidth]" },
+                                "value": 400
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "commandItems":
+                    [
+                      {
+                        "displayName": "Show Add Edit Expense Item",
+                        "name": "ShowAddEditExpenseItem",
+                        "kind": "Command",
+                        "view": { "__id": ":CommandBarButton" },
+                        "propertySources":
+                        [
+                          {
+                            "property": { "__id": ":RootControl/Properties[Tap]" },
+                            "source":
+                            {
+                              "target": { "__id": "!module/Methods[showAddEditExpenseItem]" },
+                              ":@CreateNewEntity":
+                              {
+                                "entityType": { "__id": "ExpenseItem" },
+                                "targetParameter": { "__id": "!module/Methods[showAddEditExpenseItem]/Parameters[ExpenseItem]" }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "displayName": "Popups",
+                "name": "Popups",
+                "kind": "Group",
+                "view": { "__id": ":DialogPages" }
+              }
+            ],
+            "propertySources":
+            [
+              {
+                "property": { "__id": ":Screen/Properties[ScreenType]" },
+                "value": "Edit"
+              },
+              {
+                "property": { "__id": ":Screen/Properties[ShowAsDialog]" },
+                "value": true
+              }
+            ]
+          },
+          "methods":
+          [
+            {
+              "id": "AddEditExpenseReport/Methods[showTab]",
+              "name": "showTab",
+              "parameters":
+              [
+                {
+                  "id": "AddEditExpenseReport/Methods[showTab]/Parameters[tabName]",
+                  "name": "tabName",
+                  "parameterType": { "__id": ":String" }
+                }
+              ]
+            },
+            {
+              "id": "AddEditExpenseReport/Methods[showDialog]",
+              "name": "showDialog",
+              "parameters":
+              [
+                {
+                  "id": "AddEditExpenseReport/Methods[showDialog]/Parameters[dialogName]",
+                  "name": "dialogName",
+                  "parameterType": { "__id": ":String" }
+                }
+              ]
+            }
+          ],
+          "properties":
+          [
+            {
+              "id": "AddEditExpenseReport/Properties[ExpenseReport]",
+              "name": "ExpenseReport",
+              "elementType": { "__id": "ExpenseReport" },
+              "propertyType": { "__id": "ExpenseReport" },
+              ":@IsParameter": { }
+            }
+          ]
+        },
+        {
+          "displayName": "View Expense Report",
+          "id": "ViewExpenseReport",
+          "name": "ViewExpenseReport",
+          "launchMode": "Single",
+          ":@SaveChangesTo":
+          {
+            "property": { "__id": "DataWorkspace/Members[ApplicationData]" }
+          },
+          "rootContentItem":
+          {
+            "displayName": "Root Content Item",
+            "name": "RootContentItem",
+            "kind": "Screen",
+            "view": { "__id": ":Screen" },
+            "childContentItems":
+            [
+              {
+                "displayName": "Tabs",
+                "name": "Tabs",
+                "kind": "Group",
+                "view": { "__id": ":TabPages" },
+                "childContentItems":
+                [
+                  {
+                    "displayName": "Details",
+                    "name": "Details",
+                    "kind": "Tab",
+                    "view": { "__id": ":RowsLayout" },
+                    "childContentItems":
+                    [
+                      {
+                        "displayName": "columns",
+                        "name": "columns",
+                        "kind": "Details",
+                        "view": { "__id": ":ColumnsLayout" },
+                        "dataSource":
+                        {
+                          "member": { "__id": "ViewExpenseReport/Properties[ExpenseReport]" }
+                        },
+                        "childContentItems":
+                        [
+                          {
+                            "displayName": "left",
+                            "name": "left",
+                            "kind": "Group",
+                            "view": { "__id": ":RowsLayout" },
+                            "childContentItems":
+                            [
+                              {
+                                "displayName": "Description",
+                                "name": "Description",
+                                "kind": "Value",
+                                "view": { "__id": ":Text" },
+                                "dataSource":
+                                {
+                                  "member": { "__id": "ExpenseReport/Properties[Description]" }
+                                }
+                              },
+                              {
+                                "displayName": "Creation Date",
+                                "name": "CreationDate",
+                                "kind": "Value",
+                                "view": { "__id": ":Text" },
+                                "dataSource":
+                                {
+                                  "member": { "__id": "ExpenseReport/Properties[CreationDate]" }
+                                }
+                              }
+                            ],
+                            "propertySources":
+                            [
+                              {
+                                "property": { "__id": ":RootControl/Properties[MinWidth]" },
+                                "value": 200
+                              },
+                              {
+                                "property": { "__id": ":RootControl/Properties[MaxWidth]" },
+                                "value": 400
+                              }
+                            ]
+                          },
+                          {
+                            "displayName": "right",
+                            "name": "right",
+                            "kind": "Group",
+                            "view": { "__id": ":RowsLayout" },
+                            "childContentItems":
+                            [
+                              {
+                                "displayName": "Status",
+                                "name": "Status",
+                                "kind": "Value",
+                                "view": { "__id": ":Text" },
+                                "dataSource":
+                                {
+                                  "member": { "__id": "ExpenseReport/Properties[Status]" }
+                                }
+                              }
+                            ],
+                            "propertySources":
+                            [
+                              {
+                                "property": { "__id": ":RootControl/Properties[MinWidth]" },
+                                "value": 200
+                              },
+                              {
+                                "property": { "__id": ":RootControl/Properties[MaxWidth]" },
+                                "value": 400
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "commandItems":
+                    [
+                      {
+                        "displayName": "Delete Expense Report",
+                        "name": "Delete",
+                        "kind": "Command",
+                        "view": { "__id": ":CommandBarButton" },
+                        "propertySources":
+                        [
+                          {
+                            "property": { "__id": ":RootControl/Properties[Tap]" },
+                            "source":
+                            {
+                              "target": { "__id": "ViewExpenseReport/Methods[Delete]" }
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "displayName": "Expense Items",
+                    "name": "ExpenseItems",
+                    "kind": "Tab",
+                    "view": { "__id": ":RowsLayout" },
+                    "childContentItems":
+                    [
+                      {
+                        "displayName": "Expense Items",
+                        "name": "ExpenseItems1",
+                        "kind": "Collection",
+                        "view": { "__id": ":List" },
+                        "dataSource":
+                        {
+                          "member": { "__id": "ViewExpenseReport/Properties[ExpenseItems]" }
+                        },
+                        "childContentItems":
+                        [
+                          {
+                            "displayName": "Expense Item",
+                            "name": "RowTemplate",
+                            "kind": "Details",
+                            "view": { "__id": ":ColumnsLayout" },
+                            "dataSource":
+                            {
+                              "links":
+                              [
+                              ]
+                            },
+                            "childContentItems":
+                            [
+                              {
+                                "displayName": "Date Incurred",
+                                "name": "DateIncurred",
+                                "kind": "Value",
+                                "view": { "__id": ":Text" },
+                                "dataSource":
+                                {
+                                  "member": { "__id": "ExpenseItem/Properties[DateIncurred]" }
+                                },
+                                "propertySources":
+                                [
+                                  {
+                                    "property": { "__id": ":RootControl/Properties[WidthSizingMode]" },
+                                    "value": "FixedSize"
+                                  },
+                                  {
+                                    "property": { "__id": ":RootControl/Properties[Width]" },
+                                    "value": 100
+                                  }
+                                ]
+                              },
+                              {
+                                "displayName": "Amount",
+                                "name": "Amount",
+                                "kind": "Value",
+                                "view": { "__id": ":MoneyViewer" },
+                                "dataSource":
+                                {
+                                  "member": { "__id": "ExpenseItem/Properties[Amount]" }
+                                },
+                                "propertySources":
+                                [
+                                  {
+                                    "property": { "__id": ":RootControl/Properties[WidthSizingMode]" },
+                                    "value": "FixedSize"
+                                  },
+                                  {
+                                    "property": { "__id": ":RootControl/Properties[Width]" },
+                                    "value": 100
+                                  },
+                                  {
+                                    "property": { "__id": ":RootControl/Properties[TextAlignment]" },
+                                    "value": "Right"
+                                  }
+                                ]
+                              },
+                              {
+                                "displayName": "Description",
+                                "name": "Description1",
+                                "kind": "Value",
+                                "view": { "__id": ":Text" },
+                                "dataSource":
+                                {
+                                  "member": { "__id": "ExpenseItem/Properties[Description]" }
+                                },
+                                "propertySources":
+                                [
+                                  {
+                                    "property": { "__id": ":RootControl/Properties[WidthSizingMode]" },
+                                    "value": "StretchToContainer"
+                                  }
+                                ]
+                              }
+                            ],
+                            "propertySources":
+                            [
+                              {
+                                "property": { "__id": ":RootGroup/Properties[CompactMargins]" },
+                                "value": false
+                              }
+                            ]
+                          }
+                        ],
+                        "propertySources":
+                        [
+                          {
+                            "property": { "__id": ":RootCollectionControl/Properties[ItemTap]" },
+                            "source":
+                            {
+                              "target": { "__id": "!module/Methods[showAddEditExpenseItem]" },
+                              ":@AssociatedCollection": { "collection": { "__id": "ViewExpenseReport/Properties[ExpenseItems]" } },
+                              "arguments":
+                              [
+                                {
+                                  "parameter": { "__id": "!module/Methods[showAddEditExpenseItem]/Parameters[ExpenseItem]" },
+                                  "value":
+                                  {
+                                    "links":
+                                    [
+                                      {
+                                        "member": { "__id": "ViewExpenseReport/Properties[ExpenseItems]" }
+                                      },
+                                      {
+                                        "member": { "__id": "CollectionView$ExpenseItem/Properties[selectedItem]" }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    ],
+                    "commandItems":
+                    [
+                      {
+                        "displayName": "Add Expense Item",
+                        "name": "AddExpenseItem",
+                        "kind": "Command",
+                        "view": { "__id": ":CommandBarButton" },
+                        "propertySources":
+                        [
+                          {
+                            "property": { "__id": ":RootControl/Properties[Tap]" },
+                            "source":
+                            {
+                              "target": { "__id": "!module/Methods[showAddEditExpenseItem]" },
+                              ":@AssociatedCollection": { "collection": { "__id": "ViewExpenseReport/Properties[ExpenseItems]" } },
+                              ":@CreateNewEntity":
+                              {
+                                "targetParameter": { "__id": "!module/Methods[showAddEditExpenseItem]/Parameters[ExpenseItem]" }
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "propertySources":
+                [
+                  {
+                    "property": { "__id": ":RootControl/Properties[BrowseOnly]" },
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "displayName": "Popups",
+                "name": "Popups",
+                "kind": "Group",
+                "view": { "__id": ":DialogPages" }
+              }
+            ],
+            "propertySources":
+            [
+              {
+                "property": { "__id": ":Screen/Properties[ScreenType]" },
+                "value": "Browse"
+              }
+            ]
+          },
+          "methods":
+          [
+            {
+              "id": "ViewExpenseReport/Methods[showTab]",
+              "name": "showTab",
+              "parameters":
+              [
+                {
+                  "id": "ViewExpenseReport/Methods[showTab]/Parameters[tabName]",
+                  "name": "tabName",
+                  "parameterType": { "__id": ":String" }
+                }
+              ]
+            },
+            {
+              "id": "ViewExpenseReport/Methods[showDialog]",
+              "name": "showDialog",
+              "parameters":
+              [
+                {
+                  "id": "ViewExpenseReport/Methods[showDialog]/Parameters[dialogName]",
+                  "name": "dialogName",
+                  "parameterType": { "__id": ":String" }
+                }
+              ]
+            },
+            {
+              "id": "ViewExpenseReport/Methods[Delete]",
+              "name": "Delete"
+            }
+          ],
+          "properties":
+          [
+            {
+              "id": "ViewExpenseReport/Properties[ExpenseReport]",
+              "name": "ExpenseReport",
+              "elementType": { "__id": "ExpenseReport" },
+              "propertyType": { "__id": "ExpenseReport" },
+              ":@IsParameter": { }
+            },
+            {
+              "id": "ViewExpenseReport/Properties[ExpenseItems]",
+              "name": "ExpenseItems",
+              "pageSize": 15,
+              "elementType": { "__id": "ExpenseItem" },
+              "propertyType": { "__id": "CollectionView$ExpenseItem" },
+              "query":
+              {
+                "id": "ViewExpenseReport/Properties[ExpenseItems]/Query",
+                "name": "ExpenseItemsQuery",
+                "elementType": { "__id": "ExpenseItem" },
+                "returnType": { "__id": "ExpenseItem*" },
+                "source":
+                {
+                  "links":
+                  [
+                    {
+                      "member": { "__id": "ViewExpenseReport/Properties[ExpenseReport]" }
+                    },
+                    {
+                      "member": { "__id": "ExpenseReport/Properties[ExpenseItems]" }
+                    }
+                  ]
+                }
+              },
+              "source":
+              {
+                "target": { "__id": "ViewExpenseReport/Properties[ExpenseItems]/Query" }
+              }
+            }
+          ]
+        },
+        {
+          "id": "ExpenseReport*",
+          "name": "ExpenseReport*",
+          "kind": "Enumerable",
+          "elementType": { "__id": "ExpenseReport" }
+        },
+        {
+          "id": "CollectionView$ExpenseReport",
+          "name": "CollectionView$ExpenseReport",
+          "kind": "CollectionView",
+          "elementType": { "__id": "ExpenseReport" },
+          "methods":
+          [
+            {
+              "id": "CollectionView$ExpenseReport/Methods[addNew]",
+              "name": "addNew",
+              "returnType": { "__id": "ExpenseReport" }
+            },
+            {
+              "id": "CollectionView$ExpenseReport/Methods[addAndEditNew]",
+              "name": "addAndEditNew",
+              "returnType": { "__id": "ExpenseReport" }
+            },
+            {
+              "id": "CollectionView$ExpenseReport/Methods[editSelected]",
+              "name": "editSelected"
+            },
+            {
+              "id": "CollectionView$ExpenseReport/Methods[deleteSelected]",
+              "name": "deleteSelected"
+            },
+            {
+              "id": "CollectionView$ExpenseReport/Methods[removeSelected]",
+              "name": "removeSelected"
+            },
+            {
+              "id": "CollectionView$ExpenseReport/Methods[refresh]",
+              "name": "refresh"
+            },
+            {
+              "id": "CollectionView$ExpenseReport/Methods[viewSelected]",
+              "name": "viewSelected"
+            }
+          ],
+          "properties":
+          [
+            {
+              "id": "CollectionView$ExpenseReport/Properties[selectedItem]",
+              "name": "selectedItem",
+              "propertyType": { "__id": "ExpenseReport" }
+            }
+          ]
+        },
+        {
+          "id": "ExpenseItem*",
+          "name": "ExpenseItem*",
+          "kind": "Enumerable",
+          "elementType": { "__id": "ExpenseItem" }
+        },
+        {
+          "id": "CollectionView$ExpenseItem",
+          "name": "CollectionView$ExpenseItem",
+          "kind": "CollectionView",
+          "elementType": { "__id": "ExpenseItem" },
+          "methods":
+          [
+            {
+              "id": "CollectionView$ExpenseItem/Methods[addNew]",
+              "name": "addNew",
+              "returnType": { "__id": "ExpenseItem" }
+            },
+            {
+              "id": "CollectionView$ExpenseItem/Methods[addAndEditNew]",
+              "name": "addAndEditNew",
+              "returnType": { "__id": "ExpenseItem" }
+            },
+            {
+              "id": "CollectionView$ExpenseItem/Methods[editSelected]",
+              "name": "editSelected"
+            },
+            {
+              "id": "CollectionView$ExpenseItem/Methods[deleteSelected]",
+              "name": "deleteSelected"
+            },
+            {
+              "id": "CollectionView$ExpenseItem/Methods[removeSelected]",
+              "name": "removeSelected"
+            },
+            {
+              "id": "CollectionView$ExpenseItem/Methods[refresh]",
+              "name": "refresh"
+            },
+            {
+              "id": "CollectionView$ExpenseItem/Methods[viewSelected]",
+              "name": "viewSelected"
+            }
+          ],
+          "properties":
+          [
+            {
+              "id": "CollectionView$ExpenseItem/Properties[selectedItem]",
+              "name": "selectedItem",
+              "propertyType": { "__id": "ExpenseItem" }
+            }
+          ]
+        }
+      ],
+      "methods":
+      [
+        {
+          "id": "!module/Methods[showBrowseExpenseItems]",
+          "name": "showBrowseExpenseItems",
+          ":@ShowScreenMethod": { "targetScreen": { "__id": "BrowseExpenseItems" } }
+        },
+        {
+          "id": "!module/Methods[showAddEditExpenseItem]",
+          "name": "showAddEditExpenseItem",
+          ":@ShowScreenMethod": { "targetScreen": { "__id": "AddEditExpenseItem" } },
+          "parameters":
+          [
+            {
+              "id": "!module/Methods[showAddEditExpenseItem]/Parameters[ExpenseItem]",
+              "name": "ExpenseItem",
+              "parameterType": { "__id": "ExpenseItem" }
+            }
+          ]
+        },
+        {
+          "id": "!module/Methods[showBrowseExpenseReports]",
+          "name": "showBrowseExpenseReports",
+          ":@ShowScreenMethod": { "targetScreen": { "__id": "BrowseExpenseReports" } }
+        },
+        {
+          "id": "!module/Methods[showAddEditExpenseReport]",
+          "name": "showAddEditExpenseReport",
+          ":@ShowScreenMethod": { "targetScreen": { "__id": "AddEditExpenseReport" } },
+          "parameters":
+          [
+            {
+              "id": "!module/Methods[showAddEditExpenseReport]/Parameters[ExpenseReport]",
+              "name": "ExpenseReport",
+              "parameterType": { "__id": "ExpenseReport" }
+            }
+          ]
+        },
+        {
+          "id": "!module/Methods[showViewExpenseReport]",
+          "name": "showViewExpenseReport",
+          ":@ShowScreenMethod": { "targetScreen": { "__id": "ViewExpenseReport" } },
+          "parameters":
+          [
+            {
+              "id": "!module/Methods[showViewExpenseReport]/Parameters[ExpenseReport]",
+              "name": "ExpenseReport",
+              "parameterType": { "__id": "ExpenseReport" }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Microsoft.LightSwitch.Cosmopolitan:!module",
+      "name": "Microsoft.LightSwitch.Cosmopolitan",
+      "globalItems":
+      [
+        {
+          "id": "Microsoft.LightSwitch.Cosmopolitan:CosmopolitanShell",
+          "name": "CosmopolitanShell"
+        },
+        {
+          "id": "Microsoft.LightSwitch.Cosmopolitan:CosmopolitanTheme",
+          "name": "CosmopolitanTheme"
+        }
+      ]
+    },
+    {
+      "id": "Microsoft.LightSwitch.Extensions:!module",
+      "name": "Microsoft.LightSwitch.Extensions",
+      "globalItems":
+      [
+        {
+          "__isSemanticType": 1,
+          "id": "Microsoft.LightSwitch.Extensions:EmailAddress",
+          "name": "EmailAddress",
+          "underlyingType": { "__id": ":String" },
+          "Microsoft.LightSwitch.Extensions:@EmailAddressValidation": { "domainRequired": true }
+        },
+        {
+          "__isSemanticType": 1,
+          "id": "Microsoft.LightSwitch.Extensions:Image",
+          "name": "Image",
+          "underlyingType": { "__id": ":Binary" }
+        },
+        {
+          "__isSemanticType": 1,
+          "id": "Microsoft.LightSwitch.Extensions:Money",
+          "name": "Money",
+          "underlyingType": { "__id": ":Decimal" }
+        },
+        {
+          "__isSemanticType": 1,
+          "id": "Microsoft.LightSwitch.Extensions:PhoneNumber",
+          "name": "PhoneNumber",
+          "underlyingType": { "__id": ":String" },
+          "Microsoft.LightSwitch.Extensions:@PhoneNumberValidation": { "formats": "C (AAA) NNN-NNNN;C (AAA) NNNNNNN;CAAANNNNNNN;(AAA) NNN-NNNN;(AAA) NNNNNNN;AAANNNNNNN;NNN-NNNN;NNNNNNN" }
+        },
+        {
+          "__isSemanticType": 1,
+          "id": "Microsoft.LightSwitch.Extensions:Percent",
+          "name": "Percent",
+          "underlyingType": { "__id": ":Decimal" },
+          "Microsoft.LightSwitch.Extensions:@FormatParameter": { "decimalDigits": 2 },
+          ":@DecimalConstraint":
+          {
+            "scale": 9
+          }
+        },
+        {
+          "__isSemanticType": 1,
+          "id": "Microsoft.LightSwitch.Extensions:WebAddress",
+          "name": "WebAddress",
+          "underlyingType": { "__id": ":String" },
+          "Microsoft.LightSwitch.Extensions:@WebAddressValidation": { }
+        },
+        {
+          "id": "Microsoft.LightSwitch.Extensions:EmailAddress*",
+          "name": "EmailAddress*",
+          "kind": "Enumerable",
+          "elementType": { "__id": "Microsoft.LightSwitch.Extensions:EmailAddress" }
+        },
+        {
+          "__isNullableType": 1,
+          "id": "Microsoft.LightSwitch.Extensions:EmailAddress?",
+          "name": "EmailAddress?",
+          "underlyingType": { "__id": "Microsoft.LightSwitch.Extensions:EmailAddress" }
+        },
+        {
+          "id": "Microsoft.LightSwitch.Extensions:EmailAddress?*",
+          "name": "EmailAddress?*",
+          "kind": "Enumerable",
+          "elementType": { "__id": "Microsoft.LightSwitch.Extensions:EmailAddress?" }
+        },
+        {
+          "id": "Microsoft.LightSwitch.Extensions:Image*",
+          "name": "Image*",
+          "kind": "Enumerable",
+          "elementType": { "__id": "Microsoft.LightSwitch.Extensions:Image" }
+        },
+        {
+          "__isNullableType": 1,
+          "id": "Microsoft.LightSwitch.Extensions:Image?",
+          "name": "Image?",
+          "underlyingType": { "__id": "Microsoft.LightSwitch.Extensions:Image" }
+        },
+        {
+          "id": "Microsoft.LightSwitch.Extensions:Image?*",
+          "name": "Image?*",
+          "kind": "Enumerable",
+          "elementType": { "__id": "Microsoft.LightSwitch.Extensions:Image?" }
+        },
+        {
+          "id": "Microsoft.LightSwitch.Extensions:Money*",
+          "name": "Money*",
+          "kind": "Enumerable",
+          "elementType": { "__id": "Microsoft.LightSwitch.Extensions:Money" }
+        },
+        {
+          "__isNullableType": 1,
+          "id": "Microsoft.LightSwitch.Extensions:Money?",
+          "name": "Money?",
+          "underlyingType": { "__id": "Microsoft.LightSwitch.Extensions:Money" }
+        },
+        {
+          "id": "Microsoft.LightSwitch.Extensions:Money?*",
+          "name": "Money?*",
+          "kind": "Enumerable",
+          "elementType": { "__id": "Microsoft.LightSwitch.Extensions:Money?" }
+        },
+        {
+          "id": "Microsoft.LightSwitch.Extensions:PhoneNumber*",
+          "name": "PhoneNumber*",
+          "kind": "Enumerable",
+          "elementType": { "__id": "Microsoft.LightSwitch.Extensions:PhoneNumber" }
+        },
+        {
+          "__isNullableType": 1,
+          "id": "Microsoft.LightSwitch.Extensions:PhoneNumber?",
+          "name": "PhoneNumber?",
+          "underlyingType": { "__id": "Microsoft.LightSwitch.Extensions:PhoneNumber" }
+        },
+        {
+          "id": "Microsoft.LightSwitch.Extensions:PhoneNumber?*",
+          "name": "PhoneNumber?*",
+          "kind": "Enumerable",
+          "elementType": { "__id": "Microsoft.LightSwitch.Extensions:PhoneNumber?" }
+        },
+        {
+          "id": "Microsoft.LightSwitch.Extensions:Percent*",
+          "name": "Percent*",
+          "kind": "Enumerable",
+          "elementType": { "__id": "Microsoft.LightSwitch.Extensions:Percent" }
+        },
+        {
+          "__isNullableType": 1,
+          "id": "Microsoft.LightSwitch.Extensions:Percent?",
+          "name": "Percent?",
+          "underlyingType": { "__id": "Microsoft.LightSwitch.Extensions:Percent" }
+        },
+        {
+          "id": "Microsoft.LightSwitch.Extensions:Percent?*",
+          "name": "Percent?*",
+          "kind": "Enumerable",
+          "elementType": { "__id": "Microsoft.LightSwitch.Extensions:Percent?" }
+        },
+        {
+          "id": "Microsoft.LightSwitch.Extensions:WebAddress*",
+          "name": "WebAddress*",
+          "kind": "Enumerable",
+          "elementType": { "__id": "Microsoft.LightSwitch.Extensions:WebAddress" }
+        },
+        {
+          "__isNullableType": 1,
+          "id": "Microsoft.LightSwitch.Extensions:WebAddress?",
+          "name": "WebAddress?",
+          "underlyingType": { "__id": "Microsoft.LightSwitch.Extensions:WebAddress" }
+        },
+        {
+          "id": "Microsoft.LightSwitch.Extensions:WebAddress?*",
+          "name": "WebAddress?*",
+          "kind": "Enumerable",
+          "elementType": { "__id": "Microsoft.LightSwitch.Extensions:WebAddress?" }
+        }
+      ]
+    },
+    {
+      "id": ":!module",
+      "name": "Microsoft.LightSwitch.MobileWeb",
+      "targetPlatform": "MobileWeb",
+      "globalItems":
+      [
+        {
+          "id": ":RootControl",
+          "name": "RootControl",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "supportedContentItemKind": "Unset",
+          "properties":
+          [
+            {
+              "id": ":RootControl/Properties[BrowseOnly]",
+              "name": "BrowseOnly",
+              "attachedPropertyAvailability": "Default",
+              "isAttachable": true,
+              "isInheritable": true,
+              "propertyType": { "__id": ":Boolean" },
+              "defaultValueSource":
+              {
+                "value": false
+              }
+            },
+            {
+              "id": ":RootControl/Properties[AttachedLabelPosition]",
+              "name": "AttachedLabelPosition",
+              "attachedPropertyAvailability": "Default",
+              "isAttachable": true,
+              "isInheritable": true,
+              "propertyType": { "__id": ":String" },
+              "defaultValueSource":
+              {
+                "value": "Top"
+              }
+            },
+            {
+              "id": ":RootControl/Properties[HorizontalAlignment]",
+              "name": "HorizontalAlignment",
+              "propertyType": { "__id": ":String" },
+              "defaultValueSource":
+              {
+                "value": "Left"
+              }
+            },
+            {
+              "id": ":RootControl/Properties[WidthSizingMode]",
+              "name": "WidthSizingMode",
+              "propertyType": { "__id": ":String" },
+              "defaultValueSource":
+              {
+                "value": "StretchToContainer"
+              }
+            },
+            {
+              "id": ":RootControl/Properties[HeightSizingMode]",
+              "name": "HeightSizingMode",
+              "propertyType": { "__id": ":String" },
+              "defaultValueSource":
+              {
+                "value": "FitToContent"
+              }
+            },
+            {
+              "id": ":RootControl/Properties[Width]",
+              "name": "Width",
+              "propertyType": { "__id": ":Double" },
+              "defaultValueSource":
+              {
+                "value": -1
+              }
+            },
+            {
+              "id": ":RootControl/Properties[Height]",
+              "name": "Height",
+              "propertyType": { "__id": ":Double" },
+              "defaultValueSource":
+              {
+                "value": -1
+              }
+            },
+            {
+              "id": ":RootControl/Properties[MinWidth]",
+              "name": "MinWidth",
+              "propertyType": { "__id": ":Double" },
+              "defaultValueSource":
+              {
+                "value": 0
+              }
+            },
+            {
+              "id": ":RootControl/Properties[MaxWidth]",
+              "name": "MaxWidth",
+              "propertyType": { "__id": ":Double" },
+              "defaultValueSource":
+              {
+                "value": -1
+              }
+            },
+            {
+              "id": ":RootControl/Properties[MinHeight]",
+              "name": "MinHeight",
+              "propertyType": { "__id": ":Double" },
+              "defaultValueSource":
+              {
+                "value": 0
+              }
+            },
+            {
+              "id": ":RootControl/Properties[MaxHeight]",
+              "name": "MaxHeight",
+              "propertyType": { "__id": ":Double" },
+              "defaultValueSource":
+              {
+                "value": -1
+              }
+            },
+            {
+              "id": ":RootControl/Properties[FontStyle]",
+              "name": "FontStyle",
+              "attachedPropertyAvailability": "Default",
+              "isAttachable": true,
+              "isInheritable": true,
+              "isReadOnly": true,
+              "propertyType": { "__id": ":String" },
+              "defaultValueSource":
+              {
+                "value": "Normal"
+              }
+            },
+            {
+              "id": ":RootControl/Properties[TextAlignment]",
+              "name": "TextAlignment",
+              "propertyType": { "__id": ":String" },
+              "defaultValueSource":
+              {
+                "value": "Left"
+              }
+            },
+            {
+              "id": ":RootControl/Properties[Tap]",
+              "name": "Tap",
+              "isAction": true
+            }
+          ]
+        },
+        {
+          "id": ":RootValueControl",
+          "name": "RootValueControl",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "supportedContentItemKind": "Unset",
+          "baseControl": { "__id": ":RootControl" },
+          "properties":
+          [
+            {
+              "id": ":RootValueControl/Properties[PlaceholderText]",
+              "name": "PlaceholderText",
+              "attachedPropertyAvailability": "Default",
+              "isAttachable": true,
+              "isInheritable": true,
+              "propertyType": { "__id": ":String" }
+            }
+          ]
+        },
+        {
+          "id": ":RootReadOnlyValueControl",
+          "name": "RootReadOnlyValueControl",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "supportedContentItemKind": "Unset",
+          "baseControl": { "__id": ":RootControl" },
+          "propertyOverrides":
+          [
+            {
+              "property": { "__id": ":RootControl/Properties[WidthSizingMode]" },
+              "defaultValueSource":
+              {
+                "value": "FitToContent"
+              }
+            },
+            {
+              "property": { "__id": ":RootControl/Properties[MinWidth]" },
+              "defaultValueSource":
+              {
+                "value": 30
+              }
+            }
+          ]
+        },
+        {
+          "id": ":NoControl",
+          "name": "NoControl",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "isViewer": true,
+          "supportedContentItemKind": "Value",
+          "baseControl": { "__id": ":RootValueControl" }
+        },
+        {
+          "id": ":FlipSwitchControl",
+          "name": "FlipSwitchControl",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "supportedContentItemKind": "Value",
+          "baseControl": { "__id": ":RootValueControl" },
+          "properties":
+          [
+            {
+              "id": ":FlipSwitchControl/Properties[Options]",
+              "name": "Options",
+              "propertyType": { "__id": ":String" },
+              "defaultValueSource":
+              {
+                "value": "YesNoOption"
+              }
+            }
+          ]
+        },
+        {
+          "id": ":DateTimePicker",
+          "name": "DateTimePicker",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "supportedContentItemKind": "Value",
+          "baseControl": { "__id": ":RootValueControl" },
+          "properties":
+          [
+            {
+              "id": ":DateTimePicker/Properties[MinimumYear]",
+              "name": "MinimumYear",
+              "propertyType": { "__id": ":Int32" },
+              "defaultValueSource":
+              {
+                "value": 1930
+              }
+            },
+            {
+              "id": ":DateTimePicker/Properties[MaximumYear]",
+              "name": "MaximumYear",
+              "propertyType": { "__id": ":Int32" },
+              "defaultValueSource":
+              {
+                "value": 2030
+              }
+            },
+            {
+              "id": ":DateTimePicker/Properties[Clock]",
+              "name": "Clock",
+              "propertyType": { "__id": ":String" },
+              "defaultValueSource":
+              {
+                "value": "TwelveHour"
+              }
+            },
+            {
+              "id": ":DateTimePicker/Properties[MinuteIncrement]",
+              "name": "MinuteIncrement",
+              "propertyType": { "__id": ":Int32" },
+              "defaultValueSource":
+              {
+                "value": 5
+              }
+            },
+            {
+              "id": ":DateTimePicker/Properties[DatePickerEnabled]",
+              "name": "DatePickerEnabled",
+              "propertyType": { "__id": ":Boolean" },
+              "defaultValueSource":
+              {
+                "value": true
+              }
+            },
+            {
+              "id": ":DateTimePicker/Properties[TimePickerEnabled]",
+              "name": "TimePickerEnabled",
+              "propertyType": { "__id": ":Boolean" },
+              "defaultValueSource":
+              {
+                "value": true
+              }
+            }
+          ]
+        },
+        {
+          "id": ":DatePicker",
+          "name": "DatePicker",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "supportedContentItemKind": "Value",
+          "baseControl": { "__id": ":RootValueControl" },
+          "properties":
+          [
+            {
+              "id": ":DatePicker/Properties[MinimumYear]",
+              "name": "MinimumYear",
+              "propertyType": { "__id": ":Int32" },
+              "defaultValueSource":
+              {
+                "value": 1930
+              }
+            },
+            {
+              "id": ":DatePicker/Properties[MaximumYear]",
+              "name": "MaximumYear",
+              "propertyType": { "__id": ":Int32" },
+              "defaultValueSource":
+              {
+                "value": 2030
+              }
+            }
+          ]
+        },
+        {
+          "id": ":TextBox",
+          "name": "TextBox",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "supportedContentItemKind": "Value",
+          "baseControl": { "__id": ":RootValueControl" }
+        },
+        {
+          "id": ":EmailAddressEditor",
+          "name": "EmailAddressEditor",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "supportedContentItemKind": "Value",
+          "baseControl": { "__id": ":RootValueControl" }
+        },
+        {
+          "id": ":PercentEditor",
+          "name": "PercentEditor",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "supportedContentItemKind": "Value",
+          "baseControl": { "__id": ":RootValueControl" }
+        },
+        {
+          "id": ":MoneyEditor",
+          "name": "MoneyEditor",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "supportedContentItemKind": "Value",
+          "baseControl": { "__id": ":RootValueControl" }
+        },
+        {
+          "id": ":PhoneNumberEditor",
+          "name": "PhoneNumberEditor",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "supportedContentItemKind": "Value",
+          "baseControl": { "__id": ":RootValueControl" }
+        },
+        {
+          "id": ":WebAddressEditor",
+          "name": "WebAddressEditor",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "supportedContentItemKind": "Value",
+          "baseControl": { "__id": ":RootValueControl" }
+        },
+        {
+          "id": ":EmailAddressViewer",
+          "name": "EmailAddressViewer",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "isViewer": true,
+          "supportedContentItemKind": "Value",
+          "baseControl": { "__id": ":RootReadOnlyValueControl" }
+        },
+        {
+          "id": ":PercentViewer",
+          "name": "PercentViewer",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "isViewer": true,
+          "supportedContentItemKind": "Value",
+          "baseControl": { "__id": ":RootReadOnlyValueControl" }
+        },
+        {
+          "id": ":MoneyViewer",
+          "name": "MoneyViewer",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "isViewer": true,
+          "supportedContentItemKind": "Value",
+          "baseControl": { "__id": ":RootReadOnlyValueControl" }
+        },
+        {
+          "id": ":PhoneNumberViewer",
+          "name": "PhoneNumberViewer",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "isViewer": true,
+          "supportedContentItemKind": "Value",
+          "baseControl": { "__id": ":RootReadOnlyValueControl" }
+        },
+        {
+          "id": ":WebAddressViewer",
+          "name": "WebAddressViewer",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "isViewer": true,
+          "supportedContentItemKind": "Value",
+          "baseControl": { "__id": ":RootReadOnlyValueControl" }
+        },
+        {
+          "id": ":Image",
+          "name": "Image",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "isViewer": true,
+          "supportedContentItemKind": "Value",
+          "baseControl": { "__id": ":RootReadOnlyValueControl" },
+          "properties":
+          [
+            {
+              "id": ":Image/Properties[Scale]",
+              "name": "Scale",
+              "propertyType": { "__id": ":String" },
+              "defaultValueSource":
+              {
+                "value": "Fill"
+              }
+            }
+          ],
+          "propertyOverrides":
+          [
+            {
+              "property": { "__id": ":RootControl/Properties[HeightSizingMode]" },
+              "defaultValueSource":
+              {
+                "value": "FixedSize"
+              }
+            },
+            {
+              "property": { "__id": ":RootControl/Properties[WidthSizingMode]" },
+              "defaultValueSource":
+              {
+                "value": "FixedSize"
+              }
+            },
+            {
+              "property": { "__id": ":RootControl/Properties[Width]" },
+              "defaultValueSource":
+              {
+                "value": 60
+              }
+            },
+            {
+              "property": { "__id": ":RootControl/Properties[Height]" },
+              "defaultValueSource":
+              {
+                "value": 60
+              }
+            },
+            {
+              "property": { "__id": ":RootControl/Properties[MinWidth]" },
+              "defaultValueSource":
+              {
+                "value": 12
+              }
+            },
+            {
+              "property": { "__id": ":RootControl/Properties[MinHeight]" },
+              "defaultValueSource":
+              {
+                "value": 12
+              }
+            }
+          ]
+        },
+        {
+          "id": ":TextArea",
+          "name": "TextArea",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "supportedContentItemKind": "Value",
+          "baseControl": { "__id": ":RootValueControl" },
+          "propertyOverrides":
+          [
+            {
+              "property": { "__id": ":RootControl/Properties[HeightSizingMode]" },
+              "defaultValueSource":
+              {
+                "value": "FixedSize"
+              }
+            },
+            {
+              "property": { "__id": ":RootControl/Properties[Height]" },
+              "defaultValueSource":
+              {
+                "value": 100
+              }
+            }
+          ]
+        },
+        {
+          "id": ":Paragraph",
+          "name": "Paragraph",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "isViewer": true,
+          "supportedContentItemKind": "Value",
+          "baseControl": { "__id": ":RootReadOnlyValueControl" }
+        },
+        {
+          "id": ":Text",
+          "name": "Text",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "isViewer": true,
+          "supportedContentItemKind": "Value",
+          "baseControl": { "__id": ":RootReadOnlyValueControl" }
+        },
+        {
+          "id": ":ValueDropdown",
+          "name": "ValueDropdown",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "isPicker": true,
+          "supportedContentItemKind": "Value",
+          "baseControl": { "__id": ":RootValueControl" }
+        },
+        {
+          "id": ":RootDetailsControl",
+          "name": "RootDetailsControl",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "supportedContentItemKind": "Unset",
+          "baseControl": { "__id": ":RootControl" }
+        },
+        {
+          "id": ":Summary",
+          "name": "Summary",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "isViewer": true,
+          "supportedContentItemKind": "Details",
+          "baseControl": { "__id": ":RootDetailsControl" },
+          "propertyOverrides":
+          [
+            {
+              "property": { "__id": ":RootControl/Properties[WidthSizingMode]" },
+              "defaultValueSource":
+              {
+                "value": "FitToContent"
+              }
+            }
+          ]
+        },
+        {
+          "id": ":DetailsModalPicker",
+          "name": "DetailsModalPicker",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "isPicker": true,
+          "supportedContentItemKind": "Details",
+          "baseControl": { "__id": ":RootDetailsControl" },
+          "childItemPropertySources":
+          [
+            {
+              "property": { "__id": ":RootControl/Properties[BrowseOnly]" },
+              "source":
+              {
+                "value": true
+              }
+            },
+            {
+              "property": { "__id": ":RootControl/Properties[AttachedLabelPosition]" },
+              "source":
+              {
+                "value": "None"
+              }
+            },
+            {
+              "property": { "__id": ":RootControl/Properties[MinWidth]" },
+              "source":
+              {
+                "value": 0
+              }
+            },
+            {
+              "property": { "__id": ":RootGroup/Properties[CompactMargins]" },
+              "source":
+              {
+                "value": true
+              }
+            }
+          ]
+        },
+        {
+          "id": ":RootCollectionControl",
+          "name": "RootCollectionControl",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "supportedContentItemKind": "Unset",
+          "baseControl": { "__id": ":RootControl" },
+          "properties":
+          [
+            {
+              "id": ":RootCollectionControl/Properties[ItemTap]",
+              "name": "ItemTap",
+              "isAction": true
+            },
+            {
+              "id": ":RootCollectionControl/Properties[ShowHeader]",
+              "name": "ShowHeader",
+              "propertyType": { "__id": ":Boolean" },
+              "defaultValueSource":
+              {
+                "value": false
+              }
+            }
+          ]
+        },
+        {
+          "id": ":List",
+          "name": "List",
+          "attachedLabelSupport": "DisplayedByControl",
+          "isViewer": true,
+          "supportedContentItemKind": "Collection",
+          "baseControl": { "__id": ":RootCollectionControl" },
+          "childItemPropertySources":
+          [
+            {
+              "property": { "__id": ":RootGroup/Properties[CompactMargins]" },
+              "source":
+              {
+                "value": true
+              }
+            },
+            {
+              "property": { "__id": ":RootControl/Properties[BrowseOnly]" },
+              "source":
+              {
+                "value": true
+              }
+            },
+            {
+              "property": { "__id": ":RootControl/Properties[AttachedLabelPosition]" },
+              "source":
+              {
+                "value": "None"
+              }
+            },
+            {
+              "property": { "__id": ":RootControl/Properties[HeightSizingMode]" },
+              "source":
+              {
+                "value": "FitToContent"
+              }
+            }
+          ],
+          "properties":
+          [
+            {
+              "id": ":List/Properties[ShowArrows]",
+              "name": "ShowArrows",
+              "propertyType": { "__id": ":String" },
+              "defaultValueSource":
+              {
+                "value": "Auto"
+              }
+            }
+          ]
+        },
+        {
+          "id": ":TileList",
+          "name": "TileList",
+          "attachedLabelSupport": "DisplayedByControl",
+          "isViewer": true,
+          "supportedContentItemKind": "Collection",
+          "baseControl": { "__id": ":RootCollectionControl" },
+          "childItemPropertySources":
+          [
+            {
+              "property": { "__id": ":RootControl/Properties[BrowseOnly]" },
+              "source":
+              {
+                "value": true
+              }
+            },
+            {
+              "property": { "__id": ":RootControl/Properties[AttachedLabelPosition]" },
+              "source":
+              {
+                "value": "None"
+              }
+            },
+            {
+              "property": { "__id": ":RootControl/Properties[HeightSizingMode]" },
+              "source":
+              {
+                "value": "FitToContent"
+              }
+            },
+            {
+              "property": { "__id": ":RootControl/Properties[WidthSizingMode]" },
+              "source":
+              {
+                "value": "FixedSize"
+              }
+            },
+            {
+              "property": { "__id": ":RootControl/Properties[Width]" },
+              "source":
+              {
+                "value": 235
+              }
+            },
+            {
+              "property": { "__id": ":RootControl/Properties[Height]" },
+              "source":
+              {
+                "value": 150
+              }
+            },
+            {
+              "property": { "__id": ":RootGroup/Properties[CompactMargins]" },
+              "source":
+              {
+                "value": true
+              }
+            }
+          ],
+          "properties":
+          [
+            {
+              "id": ":TileList/Properties[IsDynamicTile]",
+              "name": "IsDynamicTile",
+              "attachedPropertyAvailability": "ImmediateChildren",
+              "isAttachable": true,
+              "isInheritable": true,
+              "propertyType": { "__id": ":Boolean" },
+              "defaultValueSource":
+              {
+                "value": true
+              }
+            }
+          ]
+        },
+        {
+          "id": ":Screen",
+          "name": "Screen",
+          "attachedLabelSupport": "DisplayedByControl",
+          "supportedContentItemKind": "Screen",
+          "baseControl": { "__id": ":RootControl" },
+          "properties":
+          [
+            {
+              "id": ":Screen/Properties[ShowAsDialog]",
+              "name": "ShowAsDialog",
+              "isReadOnly": true,
+              "propertyType": { "__id": ":Boolean" },
+              "defaultValueSource":
+              {
+                "value": false
+              }
+            },
+            {
+              "id": ":Screen/Properties[HideTabTitles]",
+              "name": "HideTabTitles",
+              "propertyType": { "__id": ":Boolean" },
+              "defaultValueSource":
+              {
+                "value": false
+              }
+            },
+            {
+              "id": ":Screen/Properties[ScreenType]",
+              "name": "ScreenType",
+              "isReadOnly": true,
+              "propertyType": { "__id": ":String" },
+              "defaultValueSource":
+              {
+                "value": "Browse"
+              }
+            },
+            {
+              "id": ":Screen/Properties[ShowSaveButton]",
+              "name": "ShowSaveButton",
+              "propertyType": { "__id": ":String" }
+            }
+          ]
+        },
+        {
+          "id": ":Pages",
+          "name": "Pages",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "supportedContentItemKind": "Group",
+          "baseControl": { "__id": ":RootControl" }
+        },
+        {
+          "id": ":TabPages",
+          "name": "TabPages",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "supportedContentItemKind": "Group",
+          "baseControl": { "__id": ":Pages" }
+        },
+        {
+          "id": ":DialogPages",
+          "name": "DialogPages",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "supportedContentItemKind": "Group",
+          "baseControl": { "__id": ":Pages" },
+          "childItemPropertySources":
+          [
+            {
+              "property": { "__id": ":RootControl/Properties[WidthSizingMode]" },
+              "source":
+              {
+                "value": "FitToContent"
+              }
+            },
+            {
+              "property": { "__id": ":RootControl/Properties[HeightSizingMode]" },
+              "source":
+              {
+                "value": "FitToContent"
+              }
+            },
+            {
+              "property": { "__id": ":RootControl/Properties[MinWidth]" },
+              "source":
+              {
+                "value": 200
+              }
+            },
+            {
+              "property": { "__id": ":RootControl/Properties[MaxWidth]" },
+              "source":
+              {
+                "value": 400
+              }
+            }
+          ],
+          "properties":
+          [
+            {
+              "id": ":DialogPages/Properties[DialogType]",
+              "name": "DialogType",
+              "attachedPropertyAvailability": "ImmediateChildren",
+              "isAttachable": true,
+              "propertyType": { "__id": ":String" }
+            }
+          ]
+        },
+        {
+          "id": ":RootGroup",
+          "name": "RootGroup",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "supportedContentItemKind": "Unset",
+          "baseControl": { "__id": ":RootControl" },
+          "properties":
+          [
+            {
+              "id": ":RootGroup/Properties[CompactMargins]",
+              "name": "CompactMargins",
+              "attachedPropertyAvailability": "Default",
+              "isAttachable": true,
+              "isInheritable": true,
+              "propertyType": { "__id": ":Boolean" },
+              "defaultValueSource":
+              {
+                "value": false
+              }
+            }
+          ]
+        },
+        {
+          "id": ":RowsLayout",
+          "name": "RowsLayout",
+          "attachedLabelSupport": "DisplayedByControl",
+          "supportedContentItemKind": "Group",
+          "baseControl": { "__id": ":RootGroup" },
+          "properties":
+          [
+            {
+              "id": ":RowsLayout/Properties[WeightedRowHeight]",
+              "name": "WeightedRowHeight",
+              "attachedPropertyAvailability": "ImmediateChildren",
+              "isAttachable": true,
+              "propertyType": { "__id": ":Double" },
+              "defaultValueSource":
+              {
+                "value": 1
+              }
+            }
+          ]
+        },
+        {
+          "id": ":ColumnsLayout",
+          "name": "ColumnsLayout",
+          "attachedLabelSupport": "DisplayedByControl",
+          "supportedContentItemKind": "Group",
+          "baseControl": { "__id": ":RootGroup" },
+          "properties":
+          [
+            {
+              "id": ":ColumnsLayout/Properties[WeightedColumnWidth]",
+              "name": "WeightedColumnWidth",
+              "attachedPropertyAvailability": "ImmediateChildren",
+              "isAttachable": true,
+              "propertyType": { "__id": ":Double" },
+              "defaultValueSource":
+              {
+                "value": 1
+              }
+            }
+          ]
+        },
+        {
+          "id": ":RootCommand",
+          "name": "RootCommand",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "supportedContentItemKind": "Unset",
+          "baseControl": { "__id": ":RootControl" },
+          "properties":
+          [
+            {
+              "id": ":RootCommand/Properties[HiddenIfDisabled]",
+              "name": "HiddenIfDisabled",
+              "propertyType": { "__id": ":Boolean" },
+              "defaultValueSource":
+              {
+                "value": false
+              }
+            },
+            {
+              "id": ":RootCommand/Properties[Icon]",
+              "name": "Icon",
+              "propertyType": { "__id": ":String" },
+              "defaultValueSource":
+              {
+                "value": "msls-star"
+              }
+            }
+          ]
+        },
+        {
+          "id": ":Button",
+          "name": "Button",
+          "attachedLabelSupport": "DisplayedByControl",
+          "supportedContentItemKind": "Command",
+          "baseControl": { "__id": ":RootCommand" },
+          "defaultAction": { "__id": ":RootControl/Properties[Tap]" },
+          "propertyOverrides":
+          [
+            {
+              "isReadOnly": true,
+              "property": { "__id": ":RootControl/Properties[AttachedLabelPosition]" },
+              "defaultValueSource":
+              {
+                "value": "None"
+              }
+            },
+            {
+              "property": { "__id": ":RootControl/Properties[WidthSizingMode]" },
+              "defaultValueSource":
+              {
+                "value": "FitToContent"
+              }
+            },
+            {
+              "property": { "__id": ":RootControl/Properties[MinWidth]" },
+              "defaultValueSource":
+              {
+                "value": 90
+              }
+            }
+          ]
+        },
+        {
+          "id": ":CommandBarButton",
+          "name": "CommandBarButton",
+          "attachedLabelSupport": "DisplayedByControl",
+          "supportedContentItemKind": "Command",
+          "baseControl": { "__id": ":RootCommand" },
+          "defaultAction": { "__id": ":RootControl/Properties[Tap]" },
+          "propertyOverrides":
+          [
+            {
+              "property": { "__id": ":RootCommand/Properties[HiddenIfDisabled]" },
+              "defaultValueSource":
+              {
+                "value": true
+              }
+            },
+            {
+              "isReadOnly": true,
+              "property": { "__id": ":RootControl/Properties[AttachedLabelPosition]" },
+              "defaultValueSource":
+              {
+                "value": "None"
+              }
+            },
+            {
+              "isReadOnly": true,
+              "property": { "__id": ":RootControl/Properties[HeightSizingMode]" },
+              "defaultValueSource":
+              {
+                "value": "FitToContent"
+              }
+            },
+            {
+              "isReadOnly": true,
+              "property": { "__id": ":RootControl/Properties[WidthSizingMode]" },
+              "defaultValueSource":
+              {
+                "value": "FitToContent"
+              }
+            }
+          ]
+        },
+        {
+          "id": ":RootCustomControl",
+          "name": "RootCustomControl",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "supportedContentItemKind": "Unset",
+          "baseControl": { "__id": ":RootControl" },
+          "properties":
+          [
+            {
+              "id": ":RootCustomControl/Properties[DisabledRendering]",
+              "name": "DisabledRendering",
+              "propertyType": { "__id": ":String" },
+              "defaultValueSource":
+              {
+                "value": "Automatic"
+              }
+            },
+            {
+              "id": ":RootCustomControl/Properties[ReadOnlyRendering]",
+              "name": "ReadOnlyRendering",
+              "propertyType": { "__id": ":String" },
+              "defaultValueSource":
+              {
+                "value": "Automatic"
+              }
+            },
+            {
+              "id": ":RootCustomControl/Properties[ValidationRendering]",
+              "name": "ValidationRendering",
+              "propertyType": { "__id": ":String" },
+              "defaultValueSource":
+              {
+                "value": "Automatic"
+              }
+            }
+          ]
+        },
+        {
+          "id": ":ValueCustomControl",
+          "name": "ValueCustomControl",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "supportedContentItemKind": "Value",
+          "baseControl": { "__id": ":RootCustomControl" },
+          "propertyOverrides":
+          [
+            {
+              "property": { "__id": ":RootControl/Properties[WidthSizingMode]" },
+              "defaultValueSource":
+              {
+                "value": "FitToContent"
+              }
+            }
+          ]
+        },
+        {
+          "id": ":GroupCustomControl",
+          "name": "GroupCustomControl",
+          "attachedLabelSupport": "DisplayedByControl",
+          "supportedContentItemKind": "Group",
+          "baseControl": { "__id": ":RootCustomControl" }
+        },
+        {
+          "id": ":CollectionCustomControl",
+          "name": "CollectionCustomControl",
+          "attachedLabelSupport": "DisplayedByControl",
+          "supportedContentItemKind": "Collection",
+          "baseControl": { "__id": ":RootCustomControl" }
+        },
+        {
+          "id": ":ScreenCustomControl",
+          "name": "ScreenCustomControl",
+          "attachedLabelSupport": "DisplayedByContainer",
+          "supportedContentItemKind": "ScreenContent",
+          "baseControl": { "__id": ":RootCustomControl" }
+        },
+        {
+          "id": ":HTMLShell",
+          "name": "HTMLShell"
+        },
+        {
+          "id": ":HTMLTheme",
+          "name": "HTMLTheme"
+        }
+      ]
+    },
+    {
+      "id": ":!module",
+      "name": "Microsoft.LightSwitch",
+      "globalItems":
+      [
+        {
+          "id": ":RelativeDates",
+          "name": "RelativeDates",
+          "globalValues":
+          [
+            {
+              "id": ":RelativeDates/GlobalValues[Now]",
+              "name": "Now",
+              "returnType": { "__id": ":DateTime" }
+            },
+            {
+              "id": ":RelativeDates/GlobalValues[Today]",
+              "name": "Today",
+              "returnType": { "__id": ":DateTime" }
+            },
+            {
+              "id": ":RelativeDates/GlobalValues[EndOfDay]",
+              "name": "EndOfDay",
+              "returnType": { "__id": ":DateTime" }
+            },
+            {
+              "id": ":RelativeDates/GlobalValues[StartOfWeek]",
+              "name": "StartOfWeek",
+              "returnType": { "__id": ":DateTime" }
+            },
+            {
+              "id": ":RelativeDates/GlobalValues[EndOfWeek]",
+              "name": "EndOfWeek",
+              "returnType": { "__id": ":DateTime" }
+            },
+            {
+              "id": ":RelativeDates/GlobalValues[StartOfMonth]",
+              "name": "StartOfMonth",
+              "returnType": { "__id": ":DateTime" }
+            },
+            {
+              "id": ":RelativeDates/GlobalValues[EndOfMonth]",
+              "name": "EndOfMonth",
+              "returnType": { "__id": ":DateTime" }
+            },
+            {
+              "id": ":RelativeDates/GlobalValues[StartOfQuarter]",
+              "name": "StartOfQuarter",
+              "returnType": { "__id": ":DateTime" }
+            },
+            {
+              "id": ":RelativeDates/GlobalValues[EndOfQuarter]",
+              "name": "EndOfQuarter",
+              "returnType": { "__id": ":DateTime" }
+            },
+            {
+              "id": ":RelativeDates/GlobalValues[StartOfYear]",
+              "name": "StartOfYear",
+              "returnType": { "__id": ":DateTime" }
+            },
+            {
+              "id": ":RelativeDates/GlobalValues[EndOfYear]",
+              "name": "EndOfYear",
+              "returnType": { "__id": ":DateTime" }
+            }
+          ]
+        },
+        {
+          "__isSemanticType": 1,
+          "id": ":Date",
+          "name": "Date",
+          "underlyingType": { "__id": ":DateTime" }
+        },
+        {
+          "__isPrimitiveType": 1,
+          "id": ":Binary",
+          "name": "Binary",
+          "jSType": "Array",
+          "properties":
+          [
+            {
+              "id": ":Binary/Properties[Size]",
+              "name": "Size",
+              "propertyType": { "__id": ":Int32" }
+            }
+          ]
+        },
+        {
+          "__isPrimitiveType": 1,
+          "id": ":Boolean",
+          "name": "Boolean",
+          "jSType": "Boolean"
+        },
+        {
+          "__isPrimitiveType": 1,
+          "id": ":Byte",
+          "name": "Byte",
+          "jSType": "Number"
+        },
+        {
+          "__isPrimitiveType": 1,
+          "id": ":DateTime",
+          "name": "DateTime",
+          "jSType": "Date",
+          "methods":
+          [
+            {
+              "id": ":DateTime/Methods[AddDays]",
+              "name": "AddDays",
+              "returnType": { "__id": ":DateTime" },
+              "parameters":
+              [
+                {
+                  "id": ":DateTime/Methods[AddDays]/Parameters[Value]",
+                  "name": "Value",
+                  "parameterType": { "__id": ":Int32" }
+                }
+              ]
+            },
+            {
+              "id": ":DateTime/Methods[AddHours]",
+              "name": "AddHours",
+              "returnType": { "__id": ":DateTime" },
+              "parameters":
+              [
+                {
+                  "id": ":DateTime/Methods[AddHours]/Parameters[Value]",
+                  "name": "Value",
+                  "parameterType": { "__id": ":Int32" }
+                }
+              ]
+            },
+            {
+              "id": ":DateTime/Methods[AddMilliSeconds]",
+              "name": "AddMilliSeconds",
+              "returnType": { "__id": ":DateTime" },
+              "parameters":
+              [
+                {
+                  "id": ":DateTime/Methods[AddMilliSeconds]/Parameters[Value]",
+                  "name": "Value",
+                  "parameterType": { "__id": ":Int32" }
+                }
+              ]
+            },
+            {
+              "id": ":DateTime/Methods[AddMinutes]",
+              "name": "AddMinutes",
+              "returnType": { "__id": ":DateTime" },
+              "parameters":
+              [
+                {
+                  "id": ":DateTime/Methods[AddMinutes]/Parameters[Value]",
+                  "name": "Value",
+                  "parameterType": { "__id": ":Int32" }
+                }
+              ]
+            },
+            {
+              "id": ":DateTime/Methods[AddMonths]",
+              "name": "AddMonths",
+              "returnType": { "__id": ":DateTime" },
+              "parameters":
+              [
+                {
+                  "id": ":DateTime/Methods[AddMonths]/Parameters[Value]",
+                  "name": "Value",
+                  "parameterType": { "__id": ":Int32" }
+                }
+              ]
+            },
+            {
+              "id": ":DateTime/Methods[AddSeconds]",
+              "name": "AddSeconds",
+              "returnType": { "__id": ":DateTime" },
+              "parameters":
+              [
+                {
+                  "id": ":DateTime/Methods[AddSeconds]/Parameters[Value]",
+                  "name": "Value",
+                  "parameterType": { "__id": ":Int32" }
+                }
+              ]
+            },
+            {
+              "id": ":DateTime/Methods[AddYears]",
+              "name": "AddYears",
+              "returnType": { "__id": ":DateTime" },
+              "parameters":
+              [
+                {
+                  "id": ":DateTime/Methods[AddYears]/Parameters[Value]",
+                  "name": "Value",
+                  "parameterType": { "__id": ":Int32" }
+                }
+              ]
+            },
+            {
+              "id": ":DateTime/Methods[CompareTo]",
+              "name": "CompareTo",
+              "returnType": { "__id": ":Int32" },
+              "parameters":
+              [
+                {
+                  "id": ":DateTime/Methods[CompareTo]/Parameters[Value]",
+                  "name": "Value",
+                  "parameterType": { "__id": ":DateTime" }
+                }
+              ]
+            }
+          ],
+          "properties":
+          [
+            {
+              "id": ":DateTime/Properties[Date]",
+              "name": "Date",
+              "propertyType": { "__id": ":DateTime" }
+            },
+            {
+              "id": ":DateTime/Properties[Day]",
+              "name": "Day",
+              "propertyType": { "__id": ":Int32" }
+            },
+            {
+              "id": ":DateTime/Properties[DayOfYear]",
+              "name": "DayOfYear",
+              "propertyType": { "__id": ":Int32" }
+            },
+            {
+              "id": ":DateTime/Properties[Hour]",
+              "name": "Hour",
+              "propertyType": { "__id": ":Int32" }
+            },
+            {
+              "id": ":DateTime/Properties[Millisecond]",
+              "name": "Millisecond",
+              "propertyType": { "__id": ":Int32" }
+            },
+            {
+              "id": ":DateTime/Properties[Minute]",
+              "name": "Minute",
+              "propertyType": { "__id": ":Int32" }
+            },
+            {
+              "id": ":DateTime/Properties[Month]",
+              "name": "Month",
+              "propertyType": { "__id": ":Int32" }
+            },
+            {
+              "id": ":DateTime/Properties[Second]",
+              "name": "Second",
+              "propertyType": { "__id": ":Int32" }
+            },
+            {
+              "id": ":DateTime/Properties[Year]",
+              "name": "Year",
+              "propertyType": { "__id": ":Int32" }
+            }
+          ]
+        },
+        {
+          "__isPrimitiveType": 1,
+          "id": ":Decimal",
+          "name": "Decimal",
+          "jSType": "Number"
+        },
+        {
+          "__isPrimitiveType": 1,
+          "id": ":Double",
+          "name": "Double",
+          "jSType": "Number"
+        },
+        {
+          "__isPrimitiveType": 1,
+          "id": ":Guid",
+          "name": "Guid",
+          "jSType": "String"
+        },
+        {
+          "__isPrimitiveType": 1,
+          "id": ":Int16",
+          "name": "Int16",
+          "jSType": "Number"
+        },
+        {
+          "__isPrimitiveType": 1,
+          "id": ":Int32",
+          "name": "Int32",
+          "jSType": "Number"
+        },
+        {
+          "__isPrimitiveType": 1,
+          "id": ":Int64",
+          "name": "Int64",
+          "jSType": "Number"
+        },
+        {
+          "__isPrimitiveType": 1,
+          "id": ":RowVersion",
+          "name": "RowVersion",
+          "jSType": "Array"
+        },
+        {
+          "__isPrimitiveType": 1,
+          "id": ":SByte",
+          "name": "SByte",
+          "jSType": "Number"
+        },
+        {
+          "__isPrimitiveType": 1,
+          "id": ":Single",
+          "name": "Single",
+          "jSType": "Number"
+        },
+        {
+          "__isPrimitiveType": 1,
+          "id": ":String",
+          "name": "String",
+          "jSType": "String",
+          "methods":
+          [
+            {
+              "id": ":String/Methods[IndexOf]",
+              "name": "IndexOf",
+              "returnType": { "__id": ":Int32" },
+              "parameters":
+              [
+                {
+                  "id": ":String/Methods[IndexOf]/Parameters[Value]",
+                  "name": "Value",
+                  "parameterType": { "__id": ":String" }
+                }
+              ]
+            },
+            {
+              "id": ":String/Methods[LastIndexOf]",
+              "name": "LastIndexOf",
+              "returnType": { "__id": ":Int32" },
+              "parameters":
+              [
+                {
+                  "id": ":String/Methods[LastIndexOf]/Parameters[Value]",
+                  "name": "Value",
+                  "parameterType": { "__id": ":String" }
+                }
+              ]
+            },
+            {
+              "id": ":String/Methods[Substring]",
+              "name": "Substring",
+              "returnType": { "__id": ":String" },
+              "parameters":
+              [
+                {
+                  "id": ":String/Methods[Substring]/Parameters[StartIndex]",
+                  "name": "StartIndex",
+                  "parameterType": { "__id": ":Int32" }
+                },
+                {
+                  "id": ":String/Methods[Substring]/Parameters[Length]",
+                  "name": "Length",
+                  "parameterType": { "__id": ":Int32" }
+                }
+              ]
+            },
+            {
+              "id": ":String/Methods[Concat]",
+              "name": "Concat",
+              "returnType": { "__id": ":String" },
+              "parameters":
+              [
+                {
+                  "id": ":String/Methods[Concat]/Parameters[Values]",
+                  "name": "Values",
+                  "parameterType": { "__id": ":String" }
+                }
+              ]
+            },
+            {
+              "id": ":String/Methods[Remove]",
+              "name": "Remove",
+              "returnType": { "__id": ":String" },
+              "parameters":
+              [
+                {
+                  "id": ":String/Methods[Remove]/Parameters[StartIndex]",
+                  "name": "StartIndex",
+                  "parameterType": { "__id": ":Int32" }
+                },
+                {
+                  "id": ":String/Methods[Remove]/Parameters[Count]",
+                  "name": "Count",
+                  "parameterType": { "__id": ":Int32" }
+                }
+              ]
+            }
+          ],
+          "properties":
+          [
+            {
+              "id": ":String/Properties[Length]",
+              "name": "Length",
+              "propertyType": { "__id": ":Int32" }
+            }
+          ]
+        },
+        {
+          "__isPrimitiveType": 1,
+          "id": ":TimeSpan",
+          "name": "TimeSpan",
+          "jSType": "Object"
+        },
+        {
+          "id": ":Binary*",
+          "name": "Binary*",
+          "kind": "Enumerable",
+          "elementType": { "__id": ":Binary" }
+        },
+        {
+          "__isNullableType": 1,
+          "id": ":Binary?",
+          "name": "Binary?",
+          "underlyingType": { "__id": ":Binary" }
+        },
+        {
+          "id": ":Binary?*",
+          "name": "Binary?*",
+          "kind": "Enumerable",
+          "elementType": { "__id": ":Binary?" }
+        },
+        {
+          "id": ":Boolean*",
+          "name": "Boolean*",
+          "kind": "Enumerable",
+          "elementType": { "__id": ":Boolean" }
+        },
+        {
+          "__isNullableType": 1,
+          "id": ":Boolean?",
+          "name": "Boolean?",
+          "underlyingType": { "__id": ":Boolean" }
+        },
+        {
+          "id": ":Boolean?*",
+          "name": "Boolean?*",
+          "kind": "Enumerable",
+          "elementType": { "__id": ":Boolean?" }
+        },
+        {
+          "id": ":Byte*",
+          "name": "Byte*",
+          "kind": "Enumerable",
+          "elementType": { "__id": ":Byte" }
+        },
+        {
+          "__isNullableType": 1,
+          "id": ":Byte?",
+          "name": "Byte?",
+          "underlyingType": { "__id": ":Byte" }
+        },
+        {
+          "id": ":Byte?*",
+          "name": "Byte?*",
+          "kind": "Enumerable",
+          "elementType": { "__id": ":Byte?" }
+        },
+        {
+          "id": ":DateTime*",
+          "name": "DateTime*",
+          "kind": "Enumerable",
+          "elementType": { "__id": ":DateTime" }
+        },
+        {
+          "__isNullableType": 1,
+          "id": ":DateTime?",
+          "name": "DateTime?",
+          "underlyingType": { "__id": ":DateTime" }
+        },
+        {
+          "id": ":DateTime?*",
+          "name": "DateTime?*",
+          "kind": "Enumerable",
+          "elementType": { "__id": ":DateTime?" }
+        },
+        {
+          "id": ":Decimal*",
+          "name": "Decimal*",
+          "kind": "Enumerable",
+          "elementType": { "__id": ":Decimal" }
+        },
+        {
+          "__isNullableType": 1,
+          "id": ":Decimal?",
+          "name": "Decimal?",
+          "underlyingType": { "__id": ":Decimal" }
+        },
+        {
+          "id": ":Decimal?*",
+          "name": "Decimal?*",
+          "kind": "Enumerable",
+          "elementType": { "__id": ":Decimal?" }
+        },
+        {
+          "id": ":Double*",
+          "name": "Double*",
+          "kind": "Enumerable",
+          "elementType": { "__id": ":Double" }
+        },
+        {
+          "__isNullableType": 1,
+          "id": ":Double?",
+          "name": "Double?",
+          "underlyingType": { "__id": ":Double" }
+        },
+        {
+          "id": ":Double?*",
+          "name": "Double?*",
+          "kind": "Enumerable",
+          "elementType": { "__id": ":Double?" }
+        },
+        {
+          "id": ":Guid*",
+          "name": "Guid*",
+          "kind": "Enumerable",
+          "elementType": { "__id": ":Guid" }
+        },
+        {
+          "__isNullableType": 1,
+          "id": ":Guid?",
+          "name": "Guid?",
+          "underlyingType": { "__id": ":Guid" }
+        },
+        {
+          "id": ":Guid?*",
+          "name": "Guid?*",
+          "kind": "Enumerable",
+          "elementType": { "__id": ":Guid?" }
+        },
+        {
+          "id": ":Int16*",
+          "name": "Int16*",
+          "kind": "Enumerable",
+          "elementType": { "__id": ":Int16" }
+        },
+        {
+          "__isNullableType": 1,
+          "id": ":Int16?",
+          "name": "Int16?",
+          "underlyingType": { "__id": ":Int16" }
+        },
+        {
+          "id": ":Int16?*",
+          "name": "Int16?*",
+          "kind": "Enumerable",
+          "elementType": { "__id": ":Int16?" }
+        },
+        {
+          "id": ":Int32*",
+          "name": "Int32*",
+          "kind": "Enumerable",
+          "elementType": { "__id": ":Int32" }
+        },
+        {
+          "__isNullableType": 1,
+          "id": ":Int32?",
+          "name": "Int32?",
+          "underlyingType": { "__id": ":Int32" }
+        },
+        {
+          "id": ":Int32?*",
+          "name": "Int32?*",
+          "kind": "Enumerable",
+          "elementType": { "__id": ":Int32?" }
+        },
+        {
+          "id": ":Int64*",
+          "name": "Int64*",
+          "kind": "Enumerable",
+          "elementType": { "__id": ":Int64" }
+        },
+        {
+          "__isNullableType": 1,
+          "id": ":Int64?",
+          "name": "Int64?",
+          "underlyingType": { "__id": ":Int64" }
+        },
+        {
+          "id": ":Int64?*",
+          "name": "Int64?*",
+          "kind": "Enumerable",
+          "elementType": { "__id": ":Int64?" }
+        },
+        {
+          "id": ":RowVersion*",
+          "name": "RowVersion*",
+          "kind": "Enumerable",
+          "elementType": { "__id": ":RowVersion" }
+        },
+        {
+          "__isNullableType": 1,
+          "id": ":RowVersion?",
+          "name": "RowVersion?",
+          "underlyingType": { "__id": ":RowVersion" }
+        },
+        {
+          "id": ":RowVersion?*",
+          "name": "RowVersion?*",
+          "kind": "Enumerable",
+          "elementType": { "__id": ":RowVersion?" }
+        },
+        {
+          "id": ":SByte*",
+          "name": "SByte*",
+          "kind": "Enumerable",
+          "elementType": { "__id": ":SByte" }
+        },
+        {
+          "__isNullableType": 1,
+          "id": ":SByte?",
+          "name": "SByte?",
+          "underlyingType": { "__id": ":SByte" }
+        },
+        {
+          "id": ":SByte?*",
+          "name": "SByte?*",
+          "kind": "Enumerable",
+          "elementType": { "__id": ":SByte?" }
+        },
+        {
+          "id": ":Single*",
+          "name": "Single*",
+          "kind": "Enumerable",
+          "elementType": { "__id": ":Single" }
+        },
+        {
+          "__isNullableType": 1,
+          "id": ":Single?",
+          "name": "Single?",
+          "underlyingType": { "__id": ":Single" }
+        },
+        {
+          "id": ":Single?*",
+          "name": "Single?*",
+          "kind": "Enumerable",
+          "elementType": { "__id": ":Single?" }
+        },
+        {
+          "id": ":String*",
+          "name": "String*",
+          "kind": "Enumerable",
+          "elementType": { "__id": ":String" }
+        },
+        {
+          "__isNullableType": 1,
+          "id": ":String?",
+          "name": "String?",
+          "underlyingType": { "__id": ":String" }
+        },
+        {
+          "id": ":String?*",
+          "name": "String?*",
+          "kind": "Enumerable",
+          "elementType": { "__id": ":String?" }
+        },
+        {
+          "id": ":TimeSpan*",
+          "name": "TimeSpan*",
+          "kind": "Enumerable",
+          "elementType": { "__id": ":TimeSpan" }
+        },
+        {
+          "__isNullableType": 1,
+          "id": ":TimeSpan?",
+          "name": "TimeSpan?",
+          "underlyingType": { "__id": ":TimeSpan" }
+        },
+        {
+          "id": ":TimeSpan?*",
+          "name": "TimeSpan?*",
+          "kind": "Enumerable",
+          "elementType": { "__id": ":TimeSpan?" }
+        },
+        {
+          "id": ":Date*",
+          "name": "Date*",
+          "kind": "Enumerable",
+          "elementType": { "__id": ":Date" }
+        },
+        {
+          "__isNullableType": 1,
+          "id": ":Date?",
+          "name": "Date?",
+          "underlyingType": { "__id": ":Date" }
+        },
+        {
+          "id": ":Date?*",
+          "name": "Date?*",
+          "kind": "Enumerable",
+          "elementType": { "__id": ":Date?" }
+        }
+      ]
+    }
+  ]
+}

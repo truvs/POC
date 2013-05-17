@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8A4D642E-824A-4D58-BD56-648CC30C8F17}") = "CCERT", "CCERT\CCERT.ls3proj", "{F05FBCAA-E5F3-4B82-A66B-C8151813EFDB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+		{960759D0-F955-44A7-9595-09572D1C72E8}.0 = {B7F1AF32-4857-45F5-AC6C-8E10740B089E}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F05FBCAA-E5F3-4B82-A66B-C8151813EFDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F05FBCAA-E5F3-4B82-A66B-C8151813EFDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F05FBCAA-E5F3-4B82-A66B-C8151813EFDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F05FBCAA-E5F3-4B82-A66B-C8151813EFDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7F1AF32-4857-45F5-AC6C-8E10740B089E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7F1AF32-4857-45F5-AC6C-8E10740B089E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7F1AF32-4857-45F5-AC6C-8E10740B089E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7F1AF32-4857-45F5-AC6C-8E10740B089E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{960759D0-F955-44A7-9595-09572D1C72E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{960759D0-F955-44A7-9595-09572D1C72E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{960759D0-F955-44A7-9595-09572D1C72E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{960759D0-F955-44A7-9595-09572D1C72E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
